@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Roboto', sans-serif;
+
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 5px 10px;
+
+    background-color: #CCC;
+
+    /* Добавляем свойства для зафиксированного позиционирования */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Выберите значение z-index в зависимости от вашего дизайна */
+ 
+}
+
+header .logo {
+    height: 60px;
+    margin-right: 15px;
+}
+
+.content {
+    margin-top: 80px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 10px;
+}
+
+.content .title {
+    margin-left: 0 15px;
+}
