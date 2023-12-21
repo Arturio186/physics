@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PartnersController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +13,10 @@ Route::prefix('')->group(function () {
     Route::prefix('/news')->group(function () {
         Route::get('/', [NewsController::class, 'index'])->name('news.index');
         Route::get('/{news}', [NewsController::class, 'show'])->name('news.show');
+    });
+
+    Route::prefix('/partners')->group(function () {
+        Route::get('/', [PartnersController::class, 'index'])->name('partners.index');
     });
     
 });

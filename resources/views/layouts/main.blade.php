@@ -27,7 +27,7 @@
                 <li><a class="menu__item" href="{{route('news.index')}}">Новости</a></li>
                 <li><a class="menu__item" href="#">Турниры</a></li>
                 <li><a class="menu__item" href="#">Руководство</a></li>
-                <li><a class="menu__item" href="#">Партнёры</a></li>
+                <li><a class="menu__item" href="{{route('partners.index')}}">Партнёры</a></li>
                 <li><a class="menu__item" href="#">Проекты</a></li>
                 <li><a class="menu__item" href="#">Коммерческие услуги</a></li>
             </ul>
