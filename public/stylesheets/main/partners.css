@@ -1,4 +1,16 @@
-h1 {
-    text-align: center;
-    color: #333;
+.partners a {
+    width: 20%;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.partners a img {
+    width: 100%;
+}
+
+.partners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
