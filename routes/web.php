@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PartnersController;
+use App\Http\Controllers\ManagementController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,10 @@ Route::prefix('')->group(function () {
     Route::prefix('/partners')->group(function () {
         Route::get('/', [PartnersController::class, 'index'])->name('partners.index');
     });
-    
+
+    Route::prefix('/management')->group(function () {
+        Route::get('/', [ManagementController::class, 'index'])->name('management.index');
+    });
 });
 
 Route::middleware('auth')->group(function () {

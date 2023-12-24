@@ -1,0 +1,53 @@
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.people {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.person {
+    padding: 10px;
+    width: 24%;
+}
+
+.person img {
+    display: block;
+    width: 100%;
+}
+
+.person .text {
+    padding-top: 10px;
+    background-color: #f1f1f1;
+}
+
+.person .text p:first-child {
+    margin: 0;
+}
+
+.person .text p {
+   text-align: center;
+}
+
+.person .text .stuff {
+    font-size: 12px;
+}
+
+.person .text .name {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.text .email, .text .phone {
+    margin: 0;
+    margin-top: 6px;
+    font-size: 14px;
+} 
+
+.text .email {
+    padding-bottom: 10px;
+}
