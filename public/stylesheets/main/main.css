@@ -16,11 +16,10 @@ header {
 
     background-color: #CCC;
 
-    /* Добавляем свойства для зафиксированного позиционирования */
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000; /* Выберите значение z-index в зависимости от вашего дизайна */
+    z-index: 1000;
  
 }
 
@@ -48,3 +47,5 @@ h1 {
     text-align: center;
     color: #333;
 }
+
+
