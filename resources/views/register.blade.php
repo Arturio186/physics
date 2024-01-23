@@ -7,8 +7,15 @@
         @csrf
         <input
             class="authInput"
+            type="surname"
+            placeholder="Фамилия"
+            name="surname"
+            value="{{old('surname')}}"
+        />
+        <input
+            class="authInput"
             type="name"
-            placeholder="Ваше имя"
+            placeholder="Имя"
             name="name"
             value="{{old('name')}}"
         />
@@ -37,6 +44,10 @@
         @enderror
 
         @error('email')
+            <p class="error">{{$message}}</p>
+        @enderror
+
+        @error('surname')
             <p class="error">{{$message}}</p>
         @enderror
 
