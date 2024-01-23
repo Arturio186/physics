@@ -24,19 +24,19 @@ class DashboardController extends Controller
         $user = Auth::user();
 
         $request->validate([
-            'surname' => 'required|string',
-            'name' => 'required|string',
+            'surname' => 'nullable|string',
+            'name' => 'nullable|string',
             'mid_name' => 'nullable|string',
-            'birthdate' => 'required|date',
-            'email' => 'required|email|unique:users,email,'.$user->id,
-            'phone_number' => 'required|string',
+            'birthdate' => 'nullable|date',
+            'email' => 'nullable|email|unique:users,email,'.$user->id,
+            'phone_number' => 'nullable|string',
             'work_space' => 'nullable|string',
             'study_place' => 'nullable|string',
         ]);
 
         $user->update($request->all());
 
-        return redirect()->route('dashboard.index', $user->id)
+        return redirect()->route('dashboard.index')
             ->with('success', 'Данные успешно обновлены');
     }
 }
