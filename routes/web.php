@@ -19,7 +19,7 @@ Route::prefix('')->group(function () {
     Route::prefix('/partners')->group(function () {
         Route::get('/', [PartnersController::class, 'index'])->name('partners.index');
     });
-
+    // Коммент от Артура
     Route::prefix('/management')->group(function () {
         Route::get('/', [ManagementController::class, 'index'])->name('management.index');
     });
@@ -32,3 +32,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
