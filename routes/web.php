@@ -33,3 +33,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+//ваня сюда обратно даже даже жиес бмв для тех кто спешит мерседес для тех кто уже успел
