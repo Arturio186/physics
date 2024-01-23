@@ -19,7 +19,7 @@ Route::prefix('')->group(function () {
     Route::prefix('/partners')->group(function () {
         Route::get('/', [PartnersController::class, 'index'])->name('partners.index');
     });
-
+    // Артура коммент
     Route::prefix('/management')->group(function () {
         Route::get('/', [ManagementController::class, 'index'])->name('management.index');
     });
