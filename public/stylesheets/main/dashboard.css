@@ -70,5 +70,5 @@ h2 {
     width: 80%;
 
     display: grid;
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr;
 }

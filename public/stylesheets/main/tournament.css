@@ -1,0 +1,98 @@
+/* public/stylesheets/main/tournaments.css */
+
+.tournament-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tournament-details__header {
+    margin-bottom: 20px;
+}
+
+.tournament-details__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.tournament-details__date {
+    color: #666;
+}
+
+.tournament-details__content {
+    margin-top: 20px;
+}
+
+.tournament-details__description {
+    line-height: 1.6;
+    color: #333;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #3490dc;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #2176bd;
+}
+
+.message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+    text-align: center;
+}
+
+table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+tr {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #3490dc;
+    color: white;
+}
+
+.team__link {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #3490dc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.team__link:hover {
+    background-color: #2176bd;
+}

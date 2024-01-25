@@ -40,4 +40,9 @@ class User extends Authenticatable
     {
         return $this->role === '1';
     }
+
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class)->withPivot('player_number');;
+    }
 }

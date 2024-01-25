@@ -29,13 +29,12 @@
 
 <h2 class="subtitle">Турниры</h3>
 <div class="tournaments">
-    <div class="tournament-item">
-        <p>Турнир 1</p>
-        <a class="dashboard__button">Подробнее</a>
-    </div>
-    <div class="tournament-item">
-        <p>Турнир 2</p>
-        <a class="dashboard__button">Подробнее</a>
-    </div>
+    @foreach($user->teams as $team)
+        <div class="tournament-item">
+            <p>Турнир: {{ $team->tournament->name }}</p>
+            <p>Команда: {{ $team->name}}</p>
+            <a class="dashboard__button" href="{{ route('tournaments.show', $team->tournament->id)}}">Подробнее</a>
+        </div>
+    @endforeach
 </div>
 @endsection

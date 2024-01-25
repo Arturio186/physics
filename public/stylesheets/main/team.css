@@ -1,0 +1,51 @@
+table {
+    width: 70%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+tr {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #3490dc;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #444;
+}
+
+.message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.invite-link {
+    width: 35%;
+    padding: 8px;
+    margin: auto;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    color: #495057;
+    font-size: 14px;
+    outline: none;
+}
+
+.invite-link:hover {
+    background-color: #e9ecef;
+}

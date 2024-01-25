@@ -7,6 +7,7 @@ use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TournamentsController;
+use App\Http\Controllers\TeamController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,10 @@ Route::prefix('')->group(function () {
         Route::get('/completed', [TournamentsController::class, 'completed'])->name('tournaments.completed');
         Route::get('/{tournament}', [TournamentsController::class, 'show'])->name('tournaments.show');
     });
+
+    Route::prefix('/teams')->group(function () {
+        Route::get('/show/{team}', [TeamController::class, 'show'])->name('teams.show');
+    });
 });
 
 Route::middleware('auth')->group(function () {
@@ -42,6 +47,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [DashboardController::class, 'show'])->name('dashboard.index');
         Route::get('/edit', [DashboardController::class, 'edit'])->name('dashboard.edit');
         Route::put('/edit', [DashboardController::class, 'update'])->name('dashboard.update');
+    });
+
+    Route::prefix('/teams')->group(function () {
+        Route::get('/create', [TeamController::class, 'add'])->name('teams.add');
+        Route::post('/create', [TeamController::class, 'store'])->name('teams.store');
+        Route::get('/join/{team}', [TeamController::class, 'invite'])->name('teams.invite');
+        Route::post('/join/{team}', [TeamController::class, 'join'])->name('teams.join');
     });
 });
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tournament;
+use App\Models\Team;
+use Illuminate\Support\Facades\Auth;
 
 class TournamentsController extends Controller
 {
@@ -27,6 +29,17 @@ class TournamentsController extends Controller
 
     public function show(Tournament $tournament)
     {
-        return view('main.tournaments.show', compact('tournament'));
+        $isInTeam = false;
+
+        foreach ($tournament->teams as $team)
+        {
+            if ($team->players->contains(Auth::user()->id))
+            {
+                $isInTeam = true;
+                break;
+            }
+        }   
+
+        return view('main.tournaments.show', compact('tournament', 'isInTeam'));
     }
 }
