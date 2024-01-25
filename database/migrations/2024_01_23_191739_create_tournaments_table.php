@@ -11,6 +11,9 @@ return new class extends Migration
         Schema::create('tournaments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('description');
+            $table->date('start_date');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

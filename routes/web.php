@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TournamentsController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +21,15 @@ Route::prefix('')->group(function () {
     Route::prefix('/partners')->group(function () {
         Route::get('/', [PartnersController::class, 'index'])->name('partners.index');
     });
-    // Артура коммент
+
     Route::prefix('/management')->group(function () {
         Route::get('/', [ManagementController::class, 'index'])->name('management.index');
+    });
+
+    Route::prefix('/tournaments')->group(function () {
+        Route::get('/', [TournamentsController::class, 'active'])->name('tournaments.active');
+        Route::get('/completed', [TournamentsController::class, 'completed'])->name('tournaments.completed');
+        Route::get('/{tournament}', [TournamentsController::class, 'show'])->name('tournaments.show');
     });
 });
 
@@ -39,4 +46,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-//ваня сюда обратно даже даже жиес бмв для тех кто спешит мерседес для тех кто уже успел

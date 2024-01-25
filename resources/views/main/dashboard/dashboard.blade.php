@@ -16,9 +16,12 @@
     <p>Дата рождения: {{ $user->birthdate ?: 'Не указано' }}</p>
     <p>Номер телефона: {{ $user->phone_number ?: 'Не указано' }}</p>
     <p>E-mail: {{ $user->email ?: 'Не указано' }}</p>
+    <p>Спортивный разряд/звание: {{ $user->rank ?: 'Не указано' }}</p>
+    <p>Территориальная принадлежность: {{ $user->location ?: 'Не указано' }}</p>
     <p>Место работы: {{ $user->work_space ?: 'Не указано' }}</p>
     <p>Место обучения: {{ $user->study_place ?: 'Не указано' }}</p>
- 
+
+
     <a class="dashboard__button" href="{{ route('dashboard.edit') }}">Изменить данные</a>
     <a class="dashboard__button" href="#">Изменить аватарку</a>
  

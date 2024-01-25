@@ -32,6 +32,8 @@ class DashboardController extends Controller
             'phone_number' => 'nullable|string',
             'work_space' => 'nullable|string',
             'study_place' => 'nullable|string',
+            'location' => 'nullable|string',
+            'rank' => 'nullable|string'
         ]);
 
         $user->update($request->all());

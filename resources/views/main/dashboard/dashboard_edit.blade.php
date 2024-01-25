@@ -44,6 +44,16 @@
             </div>
 
             <div class="mb-3">
+                <label for="rank" class="form-label">Спортивный разряд/звание:</label>
+                <input type="text" class="form-control" id="rank" name="rank" value="{{ $user->rank }}" >
+            </div>
+
+            <div class="mb-3">
+                <label for="location" class="form-label">Территориальная принадлежность:</label>
+                <input type="text" class="form-control" id="location" name="location" value="{{ $user->location }}" >
+            </div>
+
+            <div class="mb-3">
                 <label for="phone_number" class="form-label">Номер телефона:</label>
                 <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ $user->phone_number }}" >
             </div>
