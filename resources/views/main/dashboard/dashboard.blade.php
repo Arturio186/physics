@@ -19,8 +19,8 @@
     <p>Место работы: {{ $user->work_space ?: 'Не указано' }}</p>
     <p>Место обучения: {{ $user->study_place ?: 'Не указано' }}</p>
  
-    <button id="changeDataBtn" onclick="window.location.href='{{ route('dashboard.edit') }}'">Изменить данные</button>
-    <button id="changeAvatarBtn">Изменить аватарку</button>
+    <a class="dashboard__button" href="{{ route('dashboard.edit') }}">Изменить данные</a>
+    <a class="dashboard__button" href="#">Изменить аватарку</a>
  
 </div>
 
@@ -28,11 +28,11 @@
 <div class="tournaments">
     <div class="tournament-item">
         <p>Турнир 1</p>
-        <button class="details-button">Подробнее</button>
+        <a class="dashboard__button">Подробнее</a>
     </div>
     <div class="tournament-item">
         <p>Турнир 2</p>
-        <button class="details-button">Подробнее</button>
+        <a class="dashboard__button">Подробнее</a>
     </div>
 </div>
 @endsection
