@@ -58,4 +58,16 @@
     font-size: 1.2rem;
     color: #666;
     margin-top: 20px;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #2143ff;
+
+    transition: color 0.6s ease;
+}
+
+.link:hover {
+    color: #666;
 }

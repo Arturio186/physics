@@ -28,7 +28,7 @@
                 <span></span>
             </label>
             <ul class="menu__box">
-                <li><a class="menu__item" href="/">Главная</a></li>
+                <li><a class="menu__item" href="{{ route('main.index') }}">Главная</a></li>
                 <li><a class="menu__item" href="{{ route('news.index') }}">Новости</a></li>
                 <li><a class="menu__item" href="{{ route('tournaments.active') }}">Турниры</a></li>
                 <li><a class="menu__item" href="{{ route('management.index') }}">Руководство</a></li>
@@ -51,24 +51,5 @@
     <div class="content">
         @yield('content')
     </div>
-    <script>
-        $(document).ready(function () {
-            // Скрыть меню при загрузке страницы
-            $('.user-menu').hide();
-
-            // Показываем/скрываем меню при клике на имя пользователя
-            $('.user-name').click(function () {
-                $('.user-menu').toggle();
-            });
-
-            // Скрытие меню при клике вне него
-            $(document).mouseup(function (e) {
-                var container = $(".user-menu");
-                if (!container.is(e.target) && container.has(e.target).length === 0) {
-                    container.hide();
-                }
-            });
-        });
-    </script>
 </body>
 </html>

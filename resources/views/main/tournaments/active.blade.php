@@ -1,8 +1,8 @@
 @extends('layouts.main')
-@section('title', 'Главная')
+@section('title', 'Турниры')
 
 @section('some_styles')
-<link rel="stylesheet" href="{{asset('stylesheets/main/tournaments.css')}}" />
+<link rel="stylesheet" href="{{asset('stylesheets/main/active_tournaments.css')}}" />
 @endsection
 
 @section('content')
@@ -23,5 +23,5 @@
     @else
         <p class="message">Турниров нет</p>
     @endif
-    
+    <p class="message">Если вы хотите просмотреть информацию о прошедших турнирах, перейдите по <a class="link" href="{{ route('tournaments.completed') }}">cсылке</a></p>
 @endsection
