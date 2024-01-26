@@ -31,6 +31,7 @@
                 <li><a class="menu__item" href="/">Главная</a></li>
                 <li><a class="menu__item" href="{{route('news.index')}}">Новости</a></li>
                 <li><a class="menu__item" href="#">Турниры</a></li>
+                <li><a class="menu__item" href="{{ route('events.index') }}">Галерея</a></li>
                 <li><a class="menu__item" href="{{route('management.index')}}">Руководство</a></li>
                 <li><a class="menu__item" href="{{route('partners.index')}}">Партнёры</a></li>
                 <li><a class="menu__item" href="#">Проекты</a></li>
