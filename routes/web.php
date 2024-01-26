@@ -8,6 +8,8 @@ use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TournamentsController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\EventController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +28,6 @@ Route::prefix('')->group(function () {
     Route::prefix('/management')->group(function () {
         Route::get('/', [ManagementController::class, 'index'])->name('management.index');
     });
-
     Route::prefix('/tournaments')->group(function () {
         Route::get('/', [TournamentsController::class, 'active'])->name('tournaments.active');
         Route::get('/completed', [TournamentsController::class, 'completed'])->name('tournaments.completed');
@@ -36,6 +37,20 @@ Route::prefix('')->group(function () {
     Route::prefix('/teams')->group(function () {
         Route::get('/show/{team}', [TeamController::class, 'show'])->name('teams.show');
     });
+
+    Route::get('/events', [EventController::class, 'index'])->name('events.index');
+    Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+    Route::post('/events/store', [EventController::class, 'store'])->name('events.store');
+    Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+    Route::get('/events/{event}/gallery', [EventController::class, 'showGallery'])->name('events.showGallery');
+    Route::post('/events/{event}/gallery/upload', [EventController::class, 'uploadToGallery'])->name('events.uploadToGallery');
+    Route::delete('/gallery/{id}', 'App\Http\Controllers\GalleryController@destroy')->name('gallery.delete');
+    
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::post('/gallery/upload', [GalleryController::class, 'upload'])->name('gallery.upload');
+    Route::put('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+
+
 });
 
 Route::middleware('auth')->group(function () {
@@ -45,7 +60,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'show'])->name('dashboard.index');
-        Route::get('/edit', [DashboardController::class, 'edit'])->name('dashboard.edit');
+        Route::get('/edit', [DashboardController::class, 'edit'])->name('dashboard.edit'                                                                                                           );
         Route::put('/edit', [DashboardController::class, 'update'])->name('dashboard.update');
     });
 
