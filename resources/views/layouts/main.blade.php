@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <img src="{{asset('images/tumgu_logo.svg')}}" alt="Логотип ТюмГУ" class="logo"/>
+        <img src="{{asset('images/partners/tumgu.svg')}}" alt="Логотип ТюмГУ" class="logo"/>
         <img src="{{asset('images/logo.svg')}}" alt="Логотип" class="logo"/>
         <div class="hamburger-menu">
             @auth
