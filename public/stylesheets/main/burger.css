@@ -26,7 +26,7 @@
   width: 26px;
   height: 26px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2000;
 }
 .menu__btn > span,
 .menu__btn > span::before,
@@ -56,14 +56,14 @@
   margin: 0;
   padding: 80px 0;
   list-style: none;
-  background-color: #ECEFF1;
+  background-color: #444;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
   transition-duration: .25s;
 }
 .menu__item {
   display: block;
   padding: 12px 24px;
-  color: #333;
+  color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 22px;
   font-weight: 600;
@@ -73,7 +73,7 @@
   text-align: center;
 }
 .menu__item:hover {
-  background-color: #CFD8DC;
+  background-color: #777;
 }
 
 .menu__button {
@@ -124,7 +124,6 @@
   background-color: #616161;
   color: #ddd;
 }
-
 
 .user-name {
   display: flex;
