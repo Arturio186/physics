@@ -69,7 +69,7 @@ class TeamController extends Controller
 
         $team = Team::find($request->team_id);
 
-        foreach ($team->$tournament->teams as $team)
+        foreach ($team->tournament->teams as $team)
         {
             if ($team->players->contains(Auth::user()->id))
             {
