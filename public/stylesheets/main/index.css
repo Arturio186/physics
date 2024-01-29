@@ -163,7 +163,7 @@ header {
 
 footer {
     width: 100%;
-    min-height: 500px;
+    min-height: 400px;
     padding-top: 20px;
 
     display: flex;
@@ -280,9 +280,12 @@ footer h2 {
 .about p {
     width: 70%;
 
-    margin: 0 auto;
-    text-align: justify;
+    margin: auto;
+    margin-bottom: 30px;
+    text-align: center;
 
     font-size: 1.4rem;
 }
+
+
 
