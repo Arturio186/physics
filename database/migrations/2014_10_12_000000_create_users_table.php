@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('work_space')->nullable();
             $table->string('study_place')->nullable();
             $table->string('photo_path')->nullable();
-            $table->integer('role')->default(0);
+            $table->integer('is_admin')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
