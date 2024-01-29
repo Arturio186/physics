@@ -10,25 +10,22 @@
         <h1>Наши Партнёры</h1>
         <div class="partners">
             <a href="https://www.google.com" target="_blank">
-                <img src="./images/partner_logo3.svg" alt="Партнёр">
+                <img src="{{ asset('images/partners/gerb_tum.svg') }}" alt="Правительство тюменской области">
             </a>
             <a href="https://www.google.com" target="_blank">
-                <img src="./images/partner_logo2.svg" alt="Партнёр">
+                <img src="{{ asset('images/partners/dep_sport.png') }}" alt="Департамент по спорту г.Тюмени">
             </a>
             <a href="https://www.google.com" target="_blank">
-                <img src="./images/partner_logo1.svg" alt="Партнёр">
+                <img src="{{ asset('images/partners/dep_smp.svg') }}" alt="Департамент ФКСиДОТО">
             </a>
             <a href="https://www.google.com" target="_blank">
-                <img src="./images/partner_logo2.svg" alt="Партнёр">
+                <img src="{{ asset('images/partners/tumgu.svg') }}" alt="ТюмГУ">
             </a>
             <a href="https://www.google.com" target="_blank">
-                <img src="./images/partner_logo3.svg" alt="Партнёр">
+                <img src="{{ asset('images/partners/fpg.svg') }}" alt="Фонд президентских грантов">
             </a>
             <a href="https://www.google.com" target="_blank">
-                <img src="./images/partner_logo1.svg" alt="Партнёр">
-            </a>
-            <a href="https://www.google.com" target="_blank">
-                <img src="./images/partner_logo2.svg" alt="Партнёр">
+                <img src="{{ asset('images/partners/rus_lapta.png') }}" alt="Федерация русской лапты России">
             </a>
         </div>
     </div>

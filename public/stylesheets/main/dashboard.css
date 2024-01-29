@@ -72,3 +72,10 @@ h2 {
     display: grid;
     grid-template-columns: 2fr 2fr 1fr;
 }
+
+.message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+    text-align: center;
+}

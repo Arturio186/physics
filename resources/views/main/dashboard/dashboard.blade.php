@@ -28,13 +28,17 @@
 </div>
 
 <h2 class="subtitle">Турниры</h3>
-<div class="tournaments">
-    @foreach($user->teams as $team)
-        <div class="tournament-item">
-            <p>Турнир: {{ $team->tournament->name }}</p>
-            <p>Команда: {{ $team->name}}</p>
-            <a class="dashboard__button" href="{{ route('tournaments.show', $team->tournament->id)}}">Подробнее</a>
-        </div>
-    @endforeach
-</div>
+@if (count($user->teams) != 0)
+    <div class="tournaments">
+        @foreach($user->teams as $team)
+            <div class="tournament-item">
+                <p>Турнир: {{ $team->tournament->name }}</p>
+                <p>Команда: {{ $team->name}}</p>
+                <a class="dashboard__button" href="{{ route('tournaments.show', $team->tournament->id)}}">Подробнее</a>
+            </div>
+        @endforeach
+    </div>
+@else
+    <p class="message">Вы не участвуете ни в одном турнире</p>
+@endif
 @endsection
