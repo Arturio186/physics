@@ -48,7 +48,7 @@ class TeamController extends Controller
     {
         $isInTeam = false;
 
-        foreach ($team->$tournament->teams as $team)
+        foreach ($team->tournament->teams as $team)
         {
             if ($team->players->contains(Auth::user()->id))
             {
