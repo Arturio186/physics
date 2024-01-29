@@ -38,7 +38,7 @@ class User extends \TCG\Voyager\Models\User
 
     public function isAdmin()
     {
-        return $this->role === '1';
+        return $this->is_admin === '1';
     }
 
     public function teams()
