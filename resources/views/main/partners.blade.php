@@ -16,7 +16,7 @@
                 <img src="{{ asset('images/partners/dep_sport.png') }}" alt="Департамент по спорту г.Тюмени">
             </a>
             <a href="https://www.google.com" target="_blank">
-                <img src="{{ asset('images/partners/dep_smp.svg') }}" alt="Департамент ФКСиДОТО">
+                <img src="{{ asset('images/partners/dep_smp.svg') }}" alt="Департамент">
             </a>
             <a href="https://www.google.com" target="_blank">
                 <img src="{{ asset('images/partners/tumgu.svg') }}" alt="ТюмГУ">
