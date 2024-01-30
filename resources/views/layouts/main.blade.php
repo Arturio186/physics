@@ -31,11 +31,12 @@
                 <li><a class="menu__item" href="{{ route('main.index') }}">Главная</a></li>
                 <li><a class="menu__item" href="{{route('news.index')}}">Новости</a></li>
                 <li><a class="menu__item" href="{{ route('tournaments.active') }}">Турниры</a></li>
-                <li><a class="menu__item" href="{{ route('events.index') }}">Галерея</a></li>
+                <li><a class="menu__item" href="#">Галерея</a></li>
                 <li><a class="menu__item" href="{{route('management.index')}}">Руководство</a></li>
                 <li><a class="menu__item" href="{{route('partners.index')}}">Партнёры</a></li>
                 <li><a class="menu__item" href="#">Проекты</a></li>
                 <li><a class="menu__item" href="#">Коммерческие услуги</a></li>
+                <li><a class="menu__item" href="#">Документы</a></li>
                 @auth
                     <li><a class="menu__item menu__dashboard" href="{{ route('dashboard.index') }}">Личный кабинет</a></li>
                     <li>

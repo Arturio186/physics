@@ -91,7 +91,7 @@
         </div>
         <button type="submit">Загрузить</button>
     </form>
-
+    
     <a href="{{ route('gallery.show', ['type' => 'photo']) }}" class="gallery-btn">Показать Фото</a>
     <a href="{{ route('gallery.show', ['type' => 'video']) }}" class="gallery-btn">Показать Видео</a>
 
@@ -127,7 +127,7 @@
     <div id="editTitleModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <form id="editTitleForm" action="{{ route('gallery.update', 0) }}" method="POST">
+            {{-- <form id="editTitleForm" action="{{ route('gallery.update', 0) }}" method="POST">--}}
                 @csrf
                 @method('PUT')
                 <div>

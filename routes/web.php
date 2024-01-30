@@ -38,6 +38,8 @@ Route::prefix('')->group(function () {
         Route::get('/show/{team}', [TeamController::class, 'show'])->name('teams.show');
     });
 
+    /*
+
     Route::get('/events', [EventController::class, 'index'])->name('events.index');
     Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
     Route::post('/events/store', [EventController::class, 'store'])->name('events.store');
@@ -50,7 +52,9 @@ Route::prefix('')->group(function () {
     Route::post('/gallery/upload', [GalleryController::class, 'upload'])->name('gallery.upload');
     Route::put('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
 
+    Изменил web.php, main.blade.php в layouts, inedx.blade.php в gallary
 
+    */
 });
 
 Route::middleware('auth')->group(function () {
