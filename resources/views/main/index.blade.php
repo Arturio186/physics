@@ -69,7 +69,7 @@
             </p>
         </div>
         <div class="partners">
-            <h2>Стратегические партнёры</h2>
+            <h2>ПРИ ПОДДЕРЖКЕ</h2>
             <div class="partners_img">
                 <a href="https://admtyumen.ru/">
                     <img src="{{ asset('images/partners/gerb_tum.svg') }}" alt="Правительство тюменской области">
