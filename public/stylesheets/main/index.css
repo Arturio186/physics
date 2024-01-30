@@ -199,38 +199,32 @@ footer h2 {
     font-weight: 700;
 }
 
+.partners_img {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+
+    width: 70%;
+
+    gap: 60px;
+}
+
+.partners_img a {
+    text-align: center;
+}
+
 .partners_img img {
     height: 200px;
 }
 
-.partners_img img:nth-child(3) {
-    height: 240px;
-}
-
-.partners_img img:nth-child(4) {
-    height: 190px;
-}
-
-.partners_img img:nth-child(6) {
-    height: 240px;
-}
 
 .partners {
     padding: 50px 40px;
 }
 
-.partners_img {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
 
-    width: 80%;
-
-    gap: 60px;
-}
 
 .about {
     position: relative;
