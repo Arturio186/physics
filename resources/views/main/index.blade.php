@@ -49,7 +49,7 @@
         <div class="title__smooth"></div>
         <div class="title__content">
             <img class="title__logo" src="{{ asset('images/logo.svg') }}" alt="Логотип">
-            <h1 class="title__text">Общественная организация<br>«Федерация лапты города Тюмень»</h1>
+            <h1 class="title__text">Общественная организация<br>«Федерация лапты города Тюмени»</h1>
         </div>
     </div>
     
@@ -69,15 +69,15 @@
             </p>
         </div>
         <div class="partners">
-            <h2>Партнёры</h2>
+            <h2>Стратегические партнёры</h2>
             <div class="partners_img">
-                <a href="#">
+                <a href="https://admtyumen.ru/">
                     <img src="{{ asset('images/partners/gerb_tum.svg') }}" alt="Правительство тюменской области">
                 </a>
-                <a href="#">
+                <a href="https://sport.admtyumen.ru/">
                     <img src="{{ asset('images/partners/dep_sport.png') }}" alt="Департамент по спорту г.Тюмени">
                 </a>
-                <a href="#">
+                <a href="https://sport.tyumen-city.ru/">
                     <img src="{{ asset('images/partners/dep_smp.svg') }}" alt="Департамент">
                 </a>
                 <a href="https://www.utmn.ru/">
