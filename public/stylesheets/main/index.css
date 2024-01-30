@@ -12,6 +12,21 @@ header .logo {
     margin-right: 15px;
 }
 
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 5px 10px;
+
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 .content {
     width: 100%;
     display: flex;
@@ -26,18 +41,6 @@ h1 {
     font-size: 40px;
     text-align: center;
     color: #333;
-}
-
-.title__block {
-    position: relative;
-    width: 100%;
-    min-height: 700px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background: url('../../images/lapta_background.jpg') center/cover; /* Замените 'путь_к_вашей_картинке.jpg' на путь к вашей картинке */
 }
 
 .title__smooth {
@@ -55,34 +58,16 @@ h1 {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 40px;
+    gap: 30px;
+    width: 70%;
     z-index: 2;
 }
 
 .title__text {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-top: 20px;
     color: #fff;
 }
-
-.title__logo {
-    width: 34%;
-}
-
-@media (min-width: 768px) {
-    .title__content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-    }
-
-    .title__text {
-        font-size: 3em;
-        margin-top: 0;
-    }
-}
-
 
 .title__block {
     position: relative;
@@ -96,47 +81,8 @@ h1 {
     background: url('../../images/lapta_background.jpg') center/cover;
 }
 
-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    padding: 5px 10px;
-
-    background-color: transparent;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.title__smooth {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-}
-
-.title__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 40px;
-    z-index: 2;
-}
-
-.title__text {
-    font-size: 3.5em;
-    margin-top: 20px;
-    color: #fff;
-}
-
 .title__logo {
-    width: 34%;
+    width: 28%;
 }
 
 @media (min-width: 768px) {
@@ -148,7 +94,7 @@ header {
     }
 
     .title__text {
-        font-size: 3em;
+        font-size: 2.8em;
         margin-top: 0;
     }
 }
@@ -219,6 +165,7 @@ footer h2 {
 
 .vk__link {
     margin-top: 24px;
+    text-align: center;
 
     color: #fff;
     text-decoration: none;
@@ -235,7 +182,7 @@ footer h2 {
 }
 
 .content {
-    background-color: #e2e2e2;
+    background-color: #fafafa;
 
     width: 100%;
 }
@@ -285,6 +232,14 @@ footer h2 {
     text-align: center;
 
     font-size: 1.4rem;
+}
+
+.partners_img a {
+    transition: transform 0.3s ease-in-out;
+}
+
+.partners_img a:hover {
+    transform: scale(1.07);
 }
 
 
