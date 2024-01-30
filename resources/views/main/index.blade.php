@@ -75,11 +75,10 @@
                 <a href="https://tkpst.ru/">
                     <img src="{{ asset('images/partners/tkpst.svg') }}" alt="ТКПСТ">
                 </a>
-                <a href="https://www.utmn.ru/">
-                <img src="{{ asset('images/partners/school.png') }}" alt="Школа">
-                </a>
-
                 <a href="https://school56-tmn.ru/">
+                    <img src="{{ asset('images/partners/school.png') }}" alt="Школа">
+                </a>
+                <a href="https://ruslapta.ru/">
                     <img src="{{ asset('images/partners/rus_lapta.png') }}" alt="Федерация русской лапты России">
                 </a>
             </div>
