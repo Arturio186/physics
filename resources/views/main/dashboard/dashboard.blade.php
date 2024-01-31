@@ -8,7 +8,11 @@
 <div class="container">
     <h2 class="subtitle">Личный кабинет</h2>
  
-    <img class="avatar" src="{{asset('images/ava_mock.png')}}" alt="User Avatar" width="200px">
+    @if($user->photo_path)
+    <img class="avatar" src="{{ asset($user->photo_path) }}" alt="User Avatar" width="200px">
+    @else
+        <img class="avatar" src="{{asset('images/ava_mock.png')}}" alt="User Avatar" width="200px">
+    @endif
  
     <p>Имя: {{ $user->name ?: 'Не указано' }}</p>
     <p>Фамилия: {{ $user->surname ?: 'Не указано' }}</p>
@@ -23,7 +27,11 @@
 
 
     <a class="dashboard__button" href="{{ route('dashboard.edit') }}">Изменить данные</a>
-    <a class="dashboard__button" href="#">Изменить аватарку</a>
+    <form id="avatar-form" enctype="multipart/form-data" method="post" action="{{ route('uploadAvatar') }}"> 
+        @csrf
+        <input type="file" name="avatar" id="avatar-input" style="display: none;"> 
+        <label for="avatar-input" class="dashboard__button">Изменить аватарку</label> 
+    </form>
  
 </div>
 
@@ -41,4 +49,9 @@
 @else
     <p class="message">Вы не участвуете ни в одном турнире</p>
 @endif
+<script> 
+        document.getElementById('avatar-input').addEventListener('change', () => { 
+            document.getElementById('avatar-form').submit(); 
+        }); 
+    </script>
 @endsection

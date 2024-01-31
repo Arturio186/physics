@@ -66,6 +66,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [DashboardController::class, 'show'])->name('dashboard.index');
         Route::get('/edit', [DashboardController::class, 'edit'])->name('dashboard.edit'                                                                                                           );
         Route::put('/edit', [DashboardController::class, 'update'])->name('dashboard.update');
+
+        Route::post('/uploadAvatar', [DashboardController::class, 'uploadAvatar'])->name('uploadAvatar');
     });
 
     Route::prefix('/teams')->group(function () {

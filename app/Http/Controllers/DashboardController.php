@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -40,5 +41,27 @@ class DashboardController extends Controller
 
         return redirect()->route('dashboard.index')
             ->with('success', 'Данные успешно обновлены');
+    }
+
+    public function uploadAvatar(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $user = Auth::user();
+        
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            
+            $imageName = time().'.'.$avatar->getClientOriginalExtension();
+            $avatar->move(public_path('avatars'), $imageName);
+            
+            $user->photo_path = 'avatars/'.$imageName;
+            $user->save();
+        }
+
+        return redirect()->route('dashboard.index')
+        ->with('success', 'Данные успешно обновлены');
     }
 }
