@@ -11,15 +11,7 @@ return new class extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            /*
-            $table->string('main_form');
-            $table->string('second_form');
-            $table->string('coach_name');
-            $table->string('coach_surname');
-            $table->string('coach_midname');
-            $table->string('coach_phone');
-            $table->string('coach_email')->unique();
-            */
+        
             $table->unsignedBigInteger('creator_id');
             $table->unsignedBigInteger('tournament_id');
             $table->timestamps();
