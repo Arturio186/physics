@@ -11,6 +11,6 @@ class ManagementController extends Controller
     {
         $managers = Manager::all();
 
-        return view('main.management', compact('manangers'));
+        return view('main.management', compact('managers'));
     }
 }
