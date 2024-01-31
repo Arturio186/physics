@@ -67,7 +67,6 @@
                 <label for="study_place" class="form-label">Место учебы:</label>
                 <input type="text" class="form-control" id="study_place" name="study_place" value="{{ $user->study_place }}">
             </div>
-
             <button type="submit" class="btn btn-primary">Сохранить</button>
         </form>
     </div>

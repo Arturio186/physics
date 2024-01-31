@@ -23,7 +23,8 @@ class User extends Authenticatable
         'study_place',
         'password',
         'location',
-        'rank'
+        'rank',
+        'photo_path'
     ];
 
     protected $hidden = [
