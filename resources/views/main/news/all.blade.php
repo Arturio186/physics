@@ -9,17 +9,16 @@
 @section('content')
     <h1 class="title">Новости</h1>
     @if (count($news) !== 0)
-        <div class="news-list">
+        <div class="news">
             @foreach($news as $item)
-                <div class="news-card">
-                    <img class="news-image" src="https://via.placeholder.com/400x400" alt="News Image">
-                    <div class="news-content">
-                        <h2 class="news-title">{{$item->title}}</h2>
-                        <p class="news-date">Дата: {{$item->date}}</p>
-                        <p class="news-description">{{$item->short_description}}</p>
-                        <a class="news-link" href="{{route('news.show', $item->id)}}">Подробнее</a>
+                <a href="{{ route('news.show', $item->id) }}">
+                    <div class="news__card">
+                        <img class="news-image" src="{{ asset('storage/' . $item->image_path) }}" alt="Изображение новости">
+                        <h2 class="news-title">{{ $item->title }}</h2>
+                        <p class="news-description">{{ $item->short_description }}</p>
+                        <p class="news-date">Дата: {{ $item->date }}</p>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
         <div class="pagination-container">
@@ -46,5 +45,4 @@
     @else
         <p class="message">Новостей нет</p>
     @endif
-
 @endsection

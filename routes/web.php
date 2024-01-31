@@ -10,6 +10,7 @@ use App\Http\Controllers\TournamentsController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\CommerceController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,11 @@ Route::prefix('')->group(function () {
     Route::prefix('/teams')->group(function () {
         Route::get('/show/{team}', [TeamController::class, 'show'])->name('teams.show');
     });
+
+    Route::prefix('/commerce')->group(function () {
+        Route::get('', [CommerceController::class, 'index'])->name('commerce.index');
+    });
+    
 
     /*
 

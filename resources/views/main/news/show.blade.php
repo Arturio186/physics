@@ -6,13 +6,15 @@
 @endsection
 
 @section('content')
-<div class="news-details">
-    <div class="news-header">
+<div class="news__details">
+    <div class="news__header">
         <h1>{{ $news->title }}</h1>
     </div>
-    <div class="news-content">
-        <p class="full-text">{!! nl2br($news->full_text) !!}</p>
+    <div class="news__content">
+        <p class="full__text">{!! nl2br($news->full_text) !!}</p>
+        <img class="image" src="{{ asset('storage/' . $news->image_path) }}" alt="Изображение новости">
+        <p class="date">Дата публикации: {{ $news->date }}</p>
+        
     </div>
-    <p class="date">Дата публикации: {{ $news->date }}</p>
 </div>
 @endsection

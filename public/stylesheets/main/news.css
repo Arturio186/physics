@@ -1,84 +1,62 @@
-/* Стили для карточки новости */
-.news-card {
-    width: 100%;
-    margin: 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    display: flex;
-    border-radius: 8px;
-    overflow: hidden;
+.content {
+    padding: 0 60px;
 }
 
-/* Стили для изображения новости */
-.news-image {
-    width: 150px; /* Выберите желаемую ширину изображения */
-    height: 100%;
-    object-fit: cover;
-    align-self: center; /* Центрирование изображения по вертикали */
+.news {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 30px;
+
+    padding-bottom: 20px;
 }
 
-/* Стили для контента новости */
-.news-content {
-    padding: 20px;
-    flex: 1;
+.news a {
+    text-decoration: none;
+}
+
+.news__card {
     display: flex;
     flex-direction: column;
+
+    text-align: center;
+    font-size: 0.9rem;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Стили для заголовка новости */
+.news__card:hover {
+    transform: scale(1.03);
+}
+
+
+.news-image {
+    width: 100%;
+    object-fit: cover;
+    align-self: center;
+}
+
 .news-title {
     font-size: 1.5em;
     margin-bottom: 10px;
     color: #333;
 }
 
-/* Стили для даты новости */
 .news-date {
     color: #666;
     margin-bottom: 10px;
 }
 
-/* Стили для описания новости */
 .news-description {
     line-height: 1.6;
     color: #333;
 }
 
-/* Стили для ссылки на открытие страницы новости */
-.news-link {
-    width: 140px;
-
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 15px;
-    background-color: #6c757d; /* Приглушенный серый */
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    text-align: center; /* Центрирование текста внутри кнопки */
-    box-sizing: border-box; /* Учитываем padding в размерах элемента */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход цвета при наведении */
-}
-
-.news-link:hover {
-    background-color: #495057; /* Приглушенный серый при наведении */
-}
-
-.news-details {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.news-header {
-    text-align: center;
-}
-
-.news-header h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
 
 .date {
     color: #666;
@@ -90,13 +68,33 @@
     line-height: 1.6;
 }
 
-.full-text {
-    text-align: justify;
-}
-
-
 .message {
     text-align: center;
     font-size: 24px;
 }
+
+.news__header {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.news__content {
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 auto;
+}
+
+.news__content .image {
+    width: 80%;
+
+    margin: 20px 0;
+
+    align-self: center;
+}
+
+
 

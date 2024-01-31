@@ -1,17 +1,27 @@
-.partners a {
-    width: 20%;
-    margin-right: 30px;
-    margin-bottom: 30px;
-}
-
-.partners a img {
-    width: 100%;
-}
-
-.partners {
-    display: flex;
+.partners_img {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+
+    width: 70%;
+
+    gap: 60px;
 }
+
+.partners_img a {
+    text-align: center;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.partners_img a:hover {
+    transform: scale(1.07);
+}
+
+.partners_img img {
+    height: 200px;
+}
+
 

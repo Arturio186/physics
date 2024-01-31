@@ -1,0 +1,52 @@
+
+.commerce {
+    width: 70%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 30px;
+
+    padding-bottom: 20px;
+}
+
+.commerce__card {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    font-size: 0.9rem;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.commerce__card:hover {
+    transform: scale(1.03);
+}
+
+
+.commerce__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    align-self: center;
+}
+
+.commerce__price {
+    font-size: 1.2rem;
+}
+
+.commerce__description {
+    font-size: 0.8rem;
+}
+
+.commerce__title {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
