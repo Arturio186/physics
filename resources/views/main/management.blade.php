@@ -11,7 +11,7 @@
         <div class="people">
             @foreach($managers as $manager)
                 <div class="person">
-                    <img src="{{ $manager->file_path }}" alt="Фото члена руководства"/>
+                    <img src="{{ asset($manager->file_path) }}" alt="Фото члена руководства"/>
                     <div class="text">
                         <p class="stuff">{{ $manager->staff }}</p>
                         <p class="name">{{ $manager->last_name }} {{ $manager->name }} {{ $manager->middle_name }}</p>
