@@ -9,6 +9,17 @@
     <div class="management-container">
         <h1>Руководство</h1>
         <div class="people">
+            @foreach($managers as $manager)
+                <div class="person">
+                    <img src="{{ $manager->file_path }}" alt="Фото члена руководства"/>
+                    <div class="text">
+                        <p class="stuff">Президент «Федерации лапты города Тюмени»</p>
+                        <p class="name">Бояров Иван Николаевич</p>
+                        <p class="phone">Телефон: +79829663676</p>
+                        <p class="email">E-mail: i.n.boyarov@utmn.ru</p>
+                    </div>
+                </div>
+            @endforeach
             <div class="person">
                 <img src="./images/management/ivan.jpg" alt="Фото члена руководства"/>
                 <div class="text">

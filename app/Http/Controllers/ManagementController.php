@@ -9,31 +9,8 @@ class ManagementController extends Controller
 {
     public function index() 
     {
-        return view('main.management');
-    }
+        $managers = Manager::all();
 
-    public function add()
-    {
-        
-    }
-
-    public function store() 
-    {
-
-    }
-
-    public function destroy()
-    {
-
-    }
-
-    public function edit() 
-    {
-
-    }
-
-    public function update() 
-    {
-
+        return view('main.management', compact('manangers'));
     }
 }
