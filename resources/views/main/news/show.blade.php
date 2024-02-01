@@ -14,6 +14,7 @@
         <p class="full__text">{!! nl2br($news->full_text) !!}</p>
         <img class="image" src="{{ asset('storage/' . $news->image_path) }}" alt="Изображение новости">
         <p class="date">Дата публикации: {{ $news->date }}</p>
+        <p class="date">Просмотров: {{ $news->views_counter }}</p>
         
     </div>
 </div>

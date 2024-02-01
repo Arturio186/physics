@@ -15,6 +15,9 @@ class NewsController extends Controller
 
     public function show(News $news) 
     {
+        $news->views_counter += 1;
+        $news->save();
+
         return view('main.news.show', compact('news'));
     }
 }
