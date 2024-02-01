@@ -11,6 +11,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CommerceController;
+use App\Http\Controllers\DocumentController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,10 @@ Route::prefix('')->group(function () {
 
     Route::prefix('/commerce')->group(function () {
         Route::get('', [CommerceController::class, 'index'])->name('commerce.index');
+    });
+
+    Route::prefix('/documents')->group(function () {
+        Route::get('', [DocumentController::class, 'index'])->name('documents.index');
     });
     
 
