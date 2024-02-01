@@ -33,7 +33,7 @@
                     <li><a class="menu__item" href="{{route('partners.index')}}">Партнёры</a></li>
                     <li><a class="menu__item" href="#">Проекты</a></li>
                     <li><a class="menu__item" href="{{ route('commerce.index') }}">Коммерческие услуги</a></li>
-                    <li><a class="menu__item" href="#">Документы</a></li>
+                    <li><a class="menu__item" href="{{ route('documents.index') }}">Документы</a></li>
                     @auth
                         <li><a class="menu__item menu__dashboard" href="{{ route('dashboard.index') }}">Личный кабинет</a></li>
                         <li>
