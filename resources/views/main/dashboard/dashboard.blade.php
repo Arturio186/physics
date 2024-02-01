@@ -25,13 +25,15 @@
     <p>Место работы: {{ $user->work_space ?: 'Не указано' }}</p>
     <p>Место обучения: {{ $user->study_place ?: 'Не указано' }}</p>
 
-
-    <a class="dashboard__button" href="{{ route('dashboard.edit') }}">Изменить данные</a>
-    <form id="avatar-form" enctype="multipart/form-data" method="post" action="{{ route('uploadAvatar') }}"> 
-        @csrf
-        <input type="file" name="avatar" id="avatar-input" style="display: none;"> 
-        <label for="avatar-input" class="dashboard__button">Изменить аватарку</label> 
-    </form>
+    <div class="dashboard__actions">
+        <a class="dashboard__button" href="{{ route('dashboard.edit') }}">Изменить данные</a>
+        <form id="avatar-form" enctype="multipart/form-data" method="post" action="{{ route('uploadAvatar') }}"> 
+            @csrf
+            <input type="file" name="avatar" id="avatar-input" style="display: none;"> 
+            <label for="avatar-input" class="dashboard__button">Изменить аватарку</label> 
+        </form>
+    </div>
+    
  
 </div>
 
