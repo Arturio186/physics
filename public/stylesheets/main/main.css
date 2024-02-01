@@ -7,6 +7,13 @@ body {
     box-sizing: border-box;
 }
 
+.message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+    text-align: center;
+}
+
 header {
     display: flex;
     flex-direction: row;
