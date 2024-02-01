@@ -30,16 +30,17 @@ class TournamentsController extends Controller
     public function show(Tournament $tournament)
     {
         $isInTeam = false;
-
-        foreach ($tournament->teams as $team)
-        {
-            if ($team->players->contains(Auth::user()->id))
+        if (Auth::user()) {
+            foreach ($tournament->teams as $team)
             {
-                $isInTeam = true;
-                break;
+                if ($team->players->contains(Auth::user()->id))
+                {
+                    $isInTeam = true;
+                    break;
+                }
             }
-        }   
-
+        }
+    
         return view('main.tournaments.show', compact('tournament', 'isInTeam'));
     }
 }
