@@ -2,7 +2,7 @@
 @section('title', $tournament->name)
 
 @section('some_styles')
-    <link rel="stylesheet" href="{{asset('stylesheets/main/tournament.css')}}" />
+    <link rel="stylesheet" href="{{ asset('stylesheets/main/tournament.css') }}" />
 @endsection 
 
 @section('content')
@@ -10,6 +10,11 @@
         <div class="tournament-details__header">
             <h2 class="tournament-details__title">{{ $tournament->name }}</h2>
             <p class="tournament-details__date">Дата начала: {{ $tournament->start_date }}</p>
+            @if ($referee)
+                <p class="tournament-details__referee">Судья: {{ $referee->name }} {{ $referee->surname }}</p>
+            @else
+                <p class="tournament-details__referee">Судья не назначен</p>
+            @endif
         </div>
         <div class="tournament-details__content">
             <p class="tournament-details__description">{!! nl2br(e($tournament->description)) !!}</p>
@@ -20,7 +25,7 @@
                     @else
                         <a href="{{ route('teams.add', ['tournament_id' => $tournament->id]) }}" class="btn btn-primary">Создать турнир</a>
                         @if(Auth::user()->role_id == 1)
-                            <a href="{{ route('referee.add', ['tournament_id' => $tournament->id]) }}" class="btn btn-primary">Назначить судью</a>
+                            <a href="{{ route('referee.add', ['tournament' => $tournament->id]) }}" class="btn btn-primary">Назначить судью</a>
                         @endif
                     @endif
                 @else
@@ -47,7 +52,7 @@
                 @endforeach
             </table>
         @else
-            <p class="message">Команды отсутсвуют</p>
+            <p class="message">Команды отсутствуют</p>
         @endif
     </div>
 @endsection

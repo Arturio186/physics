@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tournament;
 use App\Models\Team;
+use App\Models\Referee;
 use Illuminate\Support\Facades\Auth;
 
 class TournamentsController extends Controller
@@ -40,7 +41,9 @@ class TournamentsController extends Controller
                 }
             }
         }
-    
-        return view('main.tournaments.show', compact('tournament', 'isInTeam'));
+
+        $referee = Referee::where('tournament_id', $tournament->id)->first();
+
+        return view('main.tournaments.show', compact('tournament', 'isInTeam', 'referee'));
     }
 }
