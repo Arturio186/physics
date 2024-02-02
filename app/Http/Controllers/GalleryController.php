@@ -14,7 +14,7 @@ class GalleryController extends Controller
 
         return view('gallery.index', compact('photos', 'videos'));
     }
-
+    
     public function upload(Request $request)
     {
         $request->validate([

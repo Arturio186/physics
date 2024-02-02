@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\GalleryItem;
+use App\Models\EventDay;
 
 class EventController extends Controller
 {
@@ -34,12 +35,12 @@ class EventController extends Controller
         return redirect()->route('events.index')->with('success', 'Мероприятие успешно создано.');
     }
 
-    public function show(Event $event)
+    public function show(EventDay $EventDay)
     {
-        $photos = $event->galleryItems()->where('type', 'photo')->get();
-        $videos = $event->galleryItems()->where('type', 'video')->get();
+
+        $photos = $EventDay->galleryItems();
         
-        return view('events.show', compact('event', 'photos', 'videos'));
+        return view('events.show', compact('EventDay'));
     }
 
     public function showGallery(Event $event)
@@ -51,37 +52,50 @@ class EventController extends Controller
     }
     
 
-    public function uploadToGallery(Request $request, Event $event)
+    public function uploadGallery(Request $request, EventDay $event)
     {
         $request->validate([
-            'type' => 'required|in:photo,video',
+            'file.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:20480',
         ]);
     
-        if ($request->input('type') === 'photo') {
-            $request->validate([
-                'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:20480',
-            ]);
+        if ($request->hasFile('file')) {
+            foreach ($request->file('file') as $file) {
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('uploads'), $filename);
     
-            $file = $request->file('file');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads'), $filename);
-    
-            $event->galleryItems()->create([
-                'filename' => $filename,
-                'type' => 'photo',
-            ]);
-        } elseif ($request->input('type') === 'video') {
-            $request->validate([
-                'videoUrl' => 'required|url',
-            ]);
-    
-            $event->galleryItems()->create([
-                'filename' => $request->input('videoUrl'),
-                'type' => 'video',
-            ]);
+                $event->galleryItems()->create([
+                    'filename' => $filename,
+                    'type' => 'photo',
+                ]);
+            }
         }
     
-        return back()->with('success', 'Материал успешно загружен в галерею мероприятия.');
+        return back()->with('success', 'Фотографии успешно загружены в галерею мероприятия.');
+    }
+
+    public function showDays(Event $event)
+    {
+        $days = $event->days;
+        return view('events.subcategory', compact('event', 'days'));
     }
     
+    public function storeDays(Request $request, Event $event)
+    {
+        $request->validate([
+            'title' => 'required|string',
+        ]);
+        
+        $event->days()->create([
+            'title' => $request->input('title'),
+        ]);
+        
+        return redirect()->route('events.days', $event)->with('success', 'День мероприятия успешно добавлен.');
+    }
+        
+    public function deleteGalleryItem(GalleryItem $galleryItem)
+    {
+        $galleryItem->delete();
+
+        return redirect()->back()->with('success', 'Фотография успешно удалена из галереи мероприятия.');
+    }
 }

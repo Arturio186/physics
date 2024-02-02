@@ -38,20 +38,24 @@ Route::prefix('')->group(function () {
         Route::get('/show/{team}', [TeamController::class, 'show'])->name('teams.show');
     });
 
-    /*
+    
 
     Route::get('/events', [EventController::class, 'index'])->name('events.index');
     Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
     Route::post('/events/store', [EventController::class, 'store'])->name('events.store');
-    Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+    Route::get('/events/{EventDay}', [EventController::class, 'show'])->name('events.show');
     Route::get('/events/{event}/gallery', [EventController::class, 'showGallery'])->name('events.showGallery');
-    Route::post('/events/{event}/gallery/upload', [EventController::class, 'uploadToGallery'])->name('events.uploadToGallery');
-    Route::delete('/gallery/{id}', 'App\Http\Controllers\GalleryController@destroy')->name('gallery.delete');
+    Route::post('/events/{event}/gallery/upload', [EventController::class, 'uploadGallery'])->name('events.uploadToGallery');
+    Route::delete('/events/gallery/{galleryItem}', [EventController::class, 'deleteGalleryItem'])->name('events.deleteGalleryItem');
+
     
+    Route::get('/events/{event}/days', [EventController::class, 'showDays'])->name('events.days');
+    Route::post('/events/{event}/days', [EventController::class, 'storeDays'])->name('events.days.store');
+
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
     Route::post('/gallery/upload', [GalleryController::class, 'upload'])->name('gallery.upload');
     Route::put('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
-
+    /*
     Изменил web.php, main.blade.php в layouts, inedx.blade.php в gallary
 
     */
