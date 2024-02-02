@@ -13,7 +13,7 @@
                 <div class="person">
                     <img src="{{ asset('storage/' . $manager->photo_path) }}" alt="Фото члена руководства"/>
                     <div class="text">
-                        <p class="stuff">{{ $manager->staff }}</p>
+                        <p class="stuff">{!! nl2br($manager->staff) !!}</p>
                         <p class="name">{{ $manager->last_name }} {{ $manager->name }} {{ $manager->middle_name }}</p>
                         <p class="phone">Телефон: {{ $manager->phone }}</p>
                         <p class="email">E-mail: {{ $manager->email }}</p>
