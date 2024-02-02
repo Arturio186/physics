@@ -60,7 +60,7 @@
 
     @foreach($events as $event)
         <div class="event">
-            <h2><a href="{{ route('events.show', $event) }}">{{ $event->title }}</a></h2>
+            <h2><a href="{{ route('events.days', $event) }}">{{ $event->title }}</a></h2>
             <p>Дата: {{ $event->date }}</p>
         </div>
     @endforeach

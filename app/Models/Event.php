@@ -12,8 +12,9 @@ class Event extends Model
         'title', 'date',
     ];
     
-    public function galleryItems()
+
+    public function days()
     {
-        return $this->hasMany(GalleryItem::class);
+        return $this->hasMany(EventDay::class);
     }
 }

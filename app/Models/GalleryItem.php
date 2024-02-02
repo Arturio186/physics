@@ -10,11 +10,16 @@ class GalleryItem extends Model
     use HasFactory;
 
     protected $fillable = [
-        'event_id`', 'filename', 'type', 'title', 'date',
+        'subcategory_id', 'filename', 'date',
     ];
 
-    public function event()
+    public function subcategory()
     {
-        return $this->belongsTo(Event::class);
+        return $this->belongsTo(EventDay::class);
+    }
+
+    public function eventDay()
+    {
+        return $this->belongsTo(EventDay::class, 'subcategory_id');
     }
 }
