@@ -11,9 +11,9 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CommerceController;
-use App\Http\Controllers\DocumentController;
-
+use App\Http\Controllers\RefereeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DocumentController;
 
 Route::prefix('')->group(function () {
     Route::get('/', [MainController::class, 'index'])->name('main.index');
@@ -82,6 +82,11 @@ Route::middleware('auth')->group(function () {
         Route::put('/edit', [DashboardController::class, 'update'])->name('dashboard.update');
 
         Route::post('/uploadAvatar', [DashboardController::class, 'uploadAvatar'])->name('uploadAvatar');
+    });
+
+    Route::prefix('/referee')->group(function () {
+        Route::get('/{tournament}/create', [RefereeController::class, 'add'])->name('referee.add');
+        Route::post('/{tournament}/create', [RefereeController::class, 'store'])->name('referee.store');
     });
 
     Route::prefix('/teams')->group(function () {

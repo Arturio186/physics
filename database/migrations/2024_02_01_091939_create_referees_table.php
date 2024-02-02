@@ -6,20 +6,26 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('referees', function (Blueprint $table) {
             $table->id();
+            $table->string("surname");
+            $table->string("name");
+            $table->string("midname")->nullable();
+            $table->string("phone_number")->nullable();
+            $table->string("email")->unique();
+
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories');
+
+            $table->unsignedBigInteger('tournament_id')->nullable();
+            $table->foreign('tournament_id')->references('id')->on('tournaments');
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('referees');
