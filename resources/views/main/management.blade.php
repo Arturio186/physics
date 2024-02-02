@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="management-container">
-        <h1>Руководство</h1>
+        <h1>Коллектив</h1>
         <div class="people">
             @foreach($managers as $manager)
                 <div class="person">
