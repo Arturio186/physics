@@ -62,14 +62,17 @@
 <body>
 <h1>Дни мероприятия: {{ $event->title }}</h1>
 <div class="container">
-
-    <h2>Добавить новый день:</h2>
-    <form action="{{ route('events.days.store', $event) }}" method="POST">
-        @csrf
-        <label for="title">Название дня:</label>
-        <input type="text" id="title" name="title" required>
-        <button type="submit">Добавить</button>
-    </form>
+    @if(Auth::user())
+            @if(Auth::user()->role_id == 1)
+        <h2>Добавить новый день:</h2>
+        <form action="{{ route('events.days.store', $event) }}" method="POST">
+            @csrf
+            <label for="title">Название дня:</label>
+            <input type="text" id="title" name="title" required>
+            <button type="submit">Добавить</button>
+        </form>
+            @endif
+    @endif
     <h2>Список дней:</h2>
     <div class="days-container">
         @foreach($event->days as $day)

@@ -47,16 +47,19 @@
 
 <div class="container">
     <h1>{{ $EventDay->title }}</h1>
-    
-    <form action="{{ route('events.uploadToGallery', ['event' => $EventDay]) }}" method="post" enctype="multipart/form-data">
-        @csrf
-        <div>
-            <label for="file">Выберите файлы:</label>
-            <input type="file" id="file" multiple name="file[]" accept="image/*" required>
-        </div>
-        <input type="hidden" name="type" value="photo">
-        <button type="submit">Загрузить фотографии</button>
-    </form>
+    @if(Auth::user())
+        @if(Auth::user()->role_id == 1)
+        <form action="{{ route('events.uploadToGallery', ['event' => $EventDay]) }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div>
+                <label for="file">Выберите файлы:</label>
+                <input type="file" id="file" multiple name="file[]" accept="image/*" required>
+            </div>
+            <input type="hidden" name="type" value="photo">
+            <button type="submit">Загрузить фотографии</button>
+        </form>
+        @endif
+    @endif
 
     <div class="gallery">
         @foreach($EventDay->galleryItems as $photo)

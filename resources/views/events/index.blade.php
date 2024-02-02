@@ -55,9 +55,11 @@
 
 <div class="container">
     <h1>Список мероприятий</h1>
-
-    <a href="{{ route('events.create') }}" class="create-btn">Создать новое мероприятие</a>
-
+    @if(Auth::user())
+        @if(Auth::user()->role_id == 1)
+            <a href="{{ route('events.create') }}" class="create-btn">Создать новое мероприятие</a>
+        @endif
+    @endif
     @foreach($events as $event)
         <div class="event">
             <h2><a href="{{ route('events.days', $event) }}">{{ $event->title }}</a></h2>
