@@ -18,7 +18,10 @@
                     @if($isInTeam)
                         <p class="message">Вы уже в команде</p>
                     @else
-                        <a href="{{ route('teams.add', ['tournament_id' => $tournament->id]) }}" class="btn btn-primary">Создать команду для турнира</a>
+                        <a href="{{ route('teams.add', ['tournament_id' => $tournament->id]) }}" class="btn btn-primary">Создать турнир</a>
+                        @if(Auth::user()->role_id == 1)
+                            <a href="{{ route('referee.add', ['tournament_id' => $tournament->id]) }}" class="btn btn-primary">Назначить судью</a>
+                        @endif
                     @endif
                 @else
                     <p class="message">Чтобы создать команду, необходимо авторизироваться</p>
