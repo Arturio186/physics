@@ -39,6 +39,7 @@ Route::prefix('')->group(function () {
         Route::get('/', [App\Http\Controllers\EventController::class, 'index'])->name('events.index');
         Route::get('/create', [App\Http\Controllers\EventController::class, 'create'])->name('events.create');
         Route::post('/create', [App\Http\Controllers\EventController::class, 'store'])->name('events.store');
+        Route::delete('/{event}',  [App\Http\Controllers\EventController::class, 'destroy'])->name('events.destroy');
 
         Route::get('/{EventDay}', [App\Http\Controllers\EventController::class, 'show'])->name('events.show');
         Route::get('/{event}/gallery', [App\Http\Controllers\EventController::class, 'showGallery'])->name('events.showGallery');

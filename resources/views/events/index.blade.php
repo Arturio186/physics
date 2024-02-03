@@ -21,6 +21,15 @@
                 <div class="event">
                     <h2>{{ $event->title }}</h2>
                     <p>Дата проведения: {{ $event->date }}</p>
+                    @if (Auth::user())
+                        @if (Auth::user()->role_id == 1)
+                        <form action="{{ route('events.destroy', ['event' => $event]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="admin__btn" type="submit">Удалить</button>
+                        </form>
+                        @endif  
+                    @endif
                 </div>
             </a>
         @endforeach

@@ -57,3 +57,20 @@
 .event-link:hover {
     transform: scale(1.03);
 }
+
+.admin__btn {
+    margin-bottom: 15px;
+    
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    background-color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.admin__btn:hover {
+    background-color: #555;
+}

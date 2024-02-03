@@ -20,7 +20,7 @@
                     <label for="title">Название подкатегории:</label>
                     <input type="text" id="title" name="title" required>
 
-                    <button type="submit">Добавить</button>
+                    <button type="submit" class="admin__btn">Добавить</button>
                 </form>
             </div>
             @endif
@@ -42,7 +42,7 @@
                         <form action="{{ route('events.days.destroy', ['event' => $event, 'EventDay' => $day]) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Удалить</button>
+                            <button class="admin__btn" type="submit">Удалить</button>
                         </form>
                         @endif  
                     @endif

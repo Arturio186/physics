@@ -46,16 +46,21 @@ form input {
     border-radius: 4px;
 }
 
-form button {
+.admin__btn {
+    margin-bottom: 15px;
+    
     color: white;
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
+    background-color: #333;
+    transition: background-color 0.3s ease;
 }
 
-form button:hover {
-    background-color: #45a049;
+.admin__btn:hover {
+    background-color: #555;
 }
 
 .days {
@@ -99,18 +104,6 @@ form button:hover {
     color: #333;
 }
 
-.day a:hover {
-    color: #ff6347; 
-}
-
-.day form button[type="submit"] {
-    background-color: #333;
-    margin-bottom: 10px;
-}
-
-.day form button[type="submit"]:hover {
-    background-color: #555;
-}
 
 .back__link {
     margin-top: 20px;
