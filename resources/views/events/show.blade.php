@@ -1,84 +1,101 @@
 @extends('layouts.main')
 
+@section('title', 'Фотографии ' . $EventDay->title)
+
+@section('some_styles')
+    <link rel="stylesheet" href="{{asset('stylesheets/main/gallery/images.css')}}" />
+@endsection
+
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $EventDay->title }}</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 20px;
-        }
-        .gallery-item {
-            text-align: center;
-        }
-        .gallery-item img {
-            max-width: 100%;
-            height: 200px; /* Фиксированная высота */
-            object-fit: cover; /* Масштабирование и обрезка изображения */
-        }
-        .btn-square {
-            display: inline-block;
-            width: 50px; /* Ширина кнопки */
-            height: 50px; /* Высота кнопки */
-            text-align: center;
-            line-height: 50px; /* Выравнивание по центру вертикально */
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-<a href="{{ route('events.index') }}" class="btn-square">&#8592;</a>
-
-<div class="container">
     <h1>{{ $EventDay->title }}</h1>
-    @if(Auth::user())
-        @if(Auth::user()->role_id == 1)
-        <form action="{{ route('events.uploadToGallery', ['event' => $EventDay]) }}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div>
-                <label for="file">Выберите файлы:</label>
-                <input type="file" id="file" multiple name="file[]" accept="image/*" required>
-            </div>
-            <input type="hidden" name="type" value="photo">
-            <button type="submit">Загрузить фотографии</button>
-        </form>
-        @endif
-    @endif
 
-    <div class="gallery">
-        @foreach($EventDay->galleryItems as $photo)
-            <div class="gallery-item">
-                <img src="{{ asset('uploads/' . $photo->filename) }}" alt="photo">
-                <p onclick="editTitle('{{ $photo->id }}', '{{ $photo->title }}')">
-                    {{ $photo->title }}<br>
-                </p>
-                <form action="{{ route('events.deleteGalleryItem', $photo) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Удалить</button>
-                </form>
+    <div class="gallery__container">
+        @if(Auth::user())
+            @if(Auth::user()->role_id == 1)
+                <div class="new-images">
+                    <h2>Загрузка изображений</h2>
+                    <form action="{{ route('events.uploadToGallery', ['event' => $EventDay]) }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div>
+                            <label for="file">Выберите файлы:</label>
+                            <input type="file" id="file" multiple name="file[]" accept="image/*" required>
+                        </div>
+
+                        <input type="hidden" name="type" value="photo">
+                        <button type="submit">Загрузить фотографии</button>
+                    </form>
+                </div>
+            @endif
+        @endif
+        @if (count($EventDay->galleryItems) === 0)
+            <p class="message">Изображения отсутсвуют</p>
+
+        @else
+            <div class="gallery">
+                @foreach($EventDay->galleryItems as $index => $photo)
+                    <div class="gallery-item">
+                        <div class="image-container" onclick="openModal('{{ asset('uploads/' . $photo->filename) }}', {{ $index }})">
+                            <img class="image" src="{{ asset('uploads/' . $photo->filename) }}" alt="photo">
+                            @if(Auth::user() && Auth::user()->role_id == 1)
+                                <div class="overlay">
+                                    <form action="{{ route('events.deleteGalleryItem', $photo) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onClick="stopPropagation(event)" class="delete-button">X</button>
+                                    </form>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        @endforeach
+        @endif
+    </div>
+    <a class="back__link" href="{{ route('events.days', ['event' => $EventDay->event]) }}">К спискам подкатегорий</a>
+
+    <div class="modal" id="imageModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="fullImage">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
-</div>
+    <script>
+        var currentSlide = 0;
+        
+        function stopPropagation(event) {
+            event.stopPropagation();
+        }
 
-</body>
-</html>
+        function openModal(imageUrl, index) {
+            var modal = document.getElementById('imageModal');
+            var fullImage = document.getElementById('fullImage');
+
+            fullImage.src = imageUrl;
+            modal.style.display = 'block';
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+
+        function plusSlides(n) {
+            showSlide(currentSlide += n);
+        }
+
+        function showSlide(n) {
+            var images = document.querySelectorAll('.gallery-item .image');
+            if (n >= images.length) {
+                currentSlide = 0;
+            }
+            if (n < 0) {
+                currentSlide = images.length - 1;
+            }
+            fullImage.src = images[currentSlide].src;
+        }
+    </script>
+
 @endsection

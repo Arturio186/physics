@@ -1,0 +1,59 @@
+/* categories.css */
+
+.events {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center; /* Добавлено для центрирования кнопки */
+}
+
+.event {
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.event:hover {
+    transform: scale(1.02);
+}
+
+.event h2 {
+    margin: 0;
+}
+
+.event a {
+    text-decoration: none;
+    color: #333;
+}
+
+.event a:hover {
+    color: #ff6347; /* Измените цвет при наведении на ссылку по вашему вкусу */
+}
+
+.create-btn {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease; /* Изменена анимация на менее выраженную */
+}
+
+.create-btn:hover {
+    background-color: #555;
+}
+
+.event-link {
+    text-decoration: none;
+    color: inherit; /* Наследует цвет из родительского блока */
+    transition: transform 0.3s ease-in-out;
+}
+
+.event-link:hover {
+    transform: scale(1.03);
+}

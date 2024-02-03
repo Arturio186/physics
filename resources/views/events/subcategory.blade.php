@@ -1,89 +1,55 @@
 @extends('layouts.main')
 
+@section('title', 'Подкатегории ' . $event->title)
+
+@section('some_styles')
+    <link rel="stylesheet" href="{{ asset('stylesheets/main/gallery/subcategories.css') }}" />
+@endsection
+
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дни мероприятия: {{ $event->title }}</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 80px auto 20px; /* Измененный отступ сверху */
-            padding: 0 20px;
-        }
-        .days-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 20px; /* Добавлен отступ сверху для контейнера дней */
-        }
-        .day {
-            width: 48%; /* Ширина блока дня */
-            margin-bottom: 20px;
-            border: 1px solid #ccc; /* Добавлено граница для блока дня */
-            padding: 10px; /* Добавлено внутреннее заполнение для блока дня */
-            box-sizing: border-box; /* Учитываем границы в общей ширине блока */
-        }
-        .day h2 {
-            margin-bottom: 5px;
-        }
-        .day p {
-            margin-bottom: 10px;
-        }
-        .create-btn {
-            display: block;
-            width: 100%;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            margin-bottom: 20px; /* Добавлен отступ снизу для кнопки */
-        }
-        .create-btn:hover {
-            background-color: #0056b3;
-        }
-        h1 {
-            text-align: center; /* Выравнивание заголовка по центру */
-            margin-bottom: 20px; /* Добавлен отступ снизу для заголовка */
-        }
-    </style>
-</head>
-<body>
-<h1>Дни мероприятия: {{ $event->title }}</h1>
-<div class="container">
-    @if(Auth::user())
-            @if(Auth::user()->role_id == 1)
-        <h2>Добавить новый день:</h2>
-        <form action="{{ route('events.days.store', $event) }}" method="POST">
-            @csrf
-            <label for="title">Название дня:</label>
-            <input type="text" id="title" name="title" required>
-            <button type="submit">Добавить</button>
-        </form>
-            @endif
-    @endif
-    <h2>Список дней:</h2>
+    <h1>Подкатегории {{ $event->title }}</h1>
+
     <div class="days-container">
-        @foreach($event->days as $day)
-            <div class="day">
-                <h2><a href="{{ route('events.show', $day) }}">{{ $day->title }}</a></h2>
+        @if(Auth::user())
+            @if(Auth::user()->role_id == 1)
+            <div class="new-category">
+                <h2 class="new-category__title">Добавить новую подкатегорию</h2>
+
+                <form action="{{ route('events.days.store', $event) }}" method="POST">
+                    @csrf
+                    <label for="title">Название подкатегории:</label>
+                    <input type="text" id="title" name="title" required>
+
+                    <button type="submit">Добавить</button>
+                </form>
             </div>
-        @endforeach
+            @endif
+        @endif
+        <div class="days">
+            @foreach($event->days as $day)
+            <a href="{{ route('events.show', $day) }}">
+                <div class="day">
+                    @if (isset($day->galleryItems[0]) && isset($day->galleryItems[0]->filename))
+                        <img src="{{ asset('uploads/' . $day->galleryItems[0]->filename) }}" alt="Обложка">
+                    @else
+                        <img src="{{ asset('images/empty_photo.png') }}" alt="заглушка облошки">
+                    @endif
+                    
+                    <h2>{{ $day->title }}</h2>
+
+                    @if (Auth::user())
+                        @if (Auth::user()->role_id == 1)
+                        <form action="{{ route('events.days.destroy', ['event' => $event, 'EventDay' => $day]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Удалить</button>
+                        </form>
+                        @endif  
+                    @endif
+                </div>
+            </a>
+            @endforeach
+        </div>
     </div>
-
-</div>
-
-</body>
-</html>
+    <a class="back__link" href="{{ route('events.index') }}">К спискам мероприятий</a>
 @endsection

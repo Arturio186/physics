@@ -37,7 +37,6 @@ class EventController extends Controller
 
     public function show(EventDay $EventDay)
     {
-
         $photos = $EventDay->galleryItems();
         
         return view('events.show', compact('EventDay'));
@@ -89,7 +88,14 @@ class EventController extends Controller
             'title' => $request->input('title'),
         ]);
         
-        return redirect()->route('events.days', $event)->with('success', 'День мероприятия успешно добавлен.');
+        return redirect()->route('events.days', $event)->with('success', 'Категория успешно добавлена.');
+    }
+
+    public function destroyDays(Request $request, Event $event, EventDay $EventDay)
+    {
+        $EventDay->delete();
+        
+        return redirect()->route('events.days', $event)->with('success', 'Категория успешно удалена.');
     }
         
     public function deleteGalleryItem(GalleryItem $galleryItem)

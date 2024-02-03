@@ -1,0 +1,201 @@
+.gallery__container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    grid-auto-rows: minmax(min-content, max-content);
+}
+
+.gallery-item {
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.overlay-content {
+    padding: 10px;
+}
+
+.delete-button {
+    align-self: flex-start;
+
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 4000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease-in-out !important; /* Добавляем !important */
+    animation: fadeInOut 0.3s ease-in-out !important; /* Добавляем !important */
+}
+
+
+@keyframes fadeInOut {
+    from {
+        opacity: 0; /* Начальная прозрачность - невидимо */
+    }
+    to {
+        opacity: 1; /* Конечная прозрачность - видимо */
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.new-images {
+    width: 35%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+.new-images form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-images form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.new-images form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.new-images form button {
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.new-images form button:hover {
+    background-color: #555;
+}
+
+.back__link {
+    margin-top: 20px;
+
+    text-decoration: none;
+    text-align: center;
+
+    font-size: 1.2rem;
+
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.back__link:hover {
+    color: #555;
+}
