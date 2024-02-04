@@ -42,8 +42,9 @@ class TournamentsController extends Controller
             }
         }
 
-        $referee = Referee::where('tournament_id', $tournament->id)->first();
+        $referees = Referee::where('tournament_id', $tournament->id)->get();
 
-        return view('main.tournaments.show', compact('tournament', 'isInTeam', 'referee'));
+
+        return view('main.tournaments.show', compact('tournament', 'isInTeam', 'referees'));
     }
 }

@@ -15,4 +15,9 @@ class Tournament extends Model
     {
         return $this->hasMany(Team::class);
     }
+
+    public function referees()
+    {
+        return $this->hasMany(Referee::class);
+    }
 }

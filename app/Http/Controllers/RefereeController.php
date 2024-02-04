@@ -6,19 +6,34 @@ use Illuminate\Http\Request;
 
 use App\Models\Referee;
 use App\Models\Tournament;
+use App\Models\Categories;
 
 class RefereeController extends Controller
 {
     public function add(Tournament $tournament)
     {
-        $referees = Referee::all();
-        return view('main.tournaments.addReferee', compact('tournament', 'referees'));
+        $categories = Categories::all();
+
+        return view('main.tournaments.addReferee', compact('tournament', 'categories'));
     }
 
     public function store(Request $request, Tournament $tournament)
     {
         $validatedData = $request->validate([
-            'referee_id' => 'required|exists:referees,id',
+            'surname' => ['required', 'string'],
+            'name' => ['required', 'string'],
+            'midname' => ['required', 'string'],
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        Referee::create([
+            'surname' => $request->surname,
+            'name' => $request->name,
+            'midname' => $request->midname,
+            'phone_number' => $request->phone_number,
+            'email' => $request->email,
+            'category_id' => $request->category_id,
+            'tournament_id' => $tournament->id
         ]);
 
         return redirect()->route('tournaments.show', ['tournament' => $tournament->id])
