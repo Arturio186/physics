@@ -37,20 +37,35 @@ Route::prefix('')->group(function () {
     
     Route::prefix('/events')->group(function () {
         Route::get('/', [App\Http\Controllers\EventController::class, 'index'])->name('events.index');
-        Route::get('/create', [App\Http\Controllers\EventController::class, 'create'])->name('events.create');
-        Route::post('/create', [App\Http\Controllers\EventController::class, 'store'])->name('events.store');
-        Route::delete('/{event}',  [App\Http\Controllers\EventController::class, 'destroy'])->name('events.destroy');
+        Route::middleware('admin')->group(function () {
+            Route::get('/create', [App\Http\Controllers\EventController::class, 'create'])->name('events.create');
+            Route::post('/create', [App\Http\Controllers\EventController::class, 'store'])->name('events.store');
+            Route::delete('/{event}',  [App\Http\Controllers\EventController::class, 'destroy'])->name('events.destroy');
+        });
 
         Route::get('/{EventDay}', [App\Http\Controllers\EventController::class, 'show'])->name('events.show');
         Route::get('/{event}/gallery', [App\Http\Controllers\EventController::class, 'showGallery'])->name('events.showGallery');
-        Route::post('/{event}/gallery/upload', [App\Http\Controllers\EventController::class, 'uploadGallery'])->name('events.uploadToGallery');
-        Route::delete('/gallery/{galleryItem}', [App\Http\Controllers\EventController::class, 'deleteGalleryItem'])->name('events.deleteGalleryItem');
-
+        Route::middleware('admin')->group(function () {
+            Route::post('/{event}/gallery/upload', [App\Http\Controllers\EventController::class, 'uploadGallery'])->name('events.uploadToGallery');
+            Route::delete('/gallery/{galleryItem}', [App\Http\Controllers\EventController::class, 'deleteGalleryItem'])->name('events.deleteGalleryItem');
+        });
+        
         Route::get('/{event}/days', [App\Http\Controllers\EventController::class, 'showDays'])->name('events.days');
-        Route::post('/{event}/days', [App\Http\Controllers\EventController::class, 'storeDays'])->name('events.days.store');
-        Route::delete('/{event}/days/{EventDay}', [App\Http\Controllers\EventController::class, 'destroyDays'])->name('events.days.destroy');
-    });
+        Route::middleware('admin')->group(function () {
+            Route::post('/{event}/days', [App\Http\Controllers\EventController::class, 'storeDays'])->name('events.days.store');
+            Route::delete('/{event}/days/{EventDay}', [App\Http\Controllers\EventController::class, 'destroyDays'])->name('events.days.destroy');
+        });
+        
+        Route::middleware('admin')->group(function () {
+            Route::get('/{event}/videos/create', [App\Http\Controllers\VideoController::class, 'add'])->name('events.videos.add');
+            Route::post('/{event}/videos/create', [App\Http\Controllers\VideoController::class, 'store'])->name('events.videos.store');
+            Route::delete('/{event}/videos/{video}', [App\Http\Controllers\VideoController::class, 'destroy'])->name('events.videos.destroy');
+            Route::get('/{event}/videos/{video}/edit', [App\Http\Controllers\VideoController::class, 'edit'])->name('events.videos.edit');
+            Route::put('/{event}/videos/{video}/edit', [App\Http\Controllers\VideoController::class, 'update'])->name('events.videos.update');
+        });
 
+        Route::get('/{event}/videos', [App\Http\Controllers\VideoController::class, 'index'])->name('events.videos.index');
+    });
 });
 
 Route::middleware('auth')->group(function () {
@@ -60,15 +75,17 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/dashboard')->group(function () {
         Route::get('/', [App\Http\Controllers\DashboardController::class, 'show'])->name('dashboard.index');
-        Route::get('/edit', [App\Http\Controllers\DashboardController::class, 'edit'])->name('dashboard.edit'                                                                                                           );
+        Route::get('/edit', [App\Http\Controllers\DashboardController::class, 'edit'])->name('dashboard.edit');
         Route::put('/edit', [App\Http\Controllers\DashboardController::class, 'update'])->name('dashboard.update');
-
         Route::post('/uploadAvatar', [App\Http\Controllers\DashboardController::class, 'uploadAvatar'])->name('uploadAvatar');
     });
+        
 
     Route::prefix('/referee')->group(function () {
-        Route::get('/{tournament}/create', [App\Http\Controllers\RefereeController::class, 'add'])->name('referee.add');
-        Route::post('/{tournament}/create', [App\Http\Controllers\RefereeController::class, 'store'])->name('referee.store');
+        Route::middleware('admin')->group(function () {
+            Route::get('/{tournament}/create', [App\Http\Controllers\RefereeController::class, 'add'])->name('referee.add');
+            Route::post('/{tournament}/create', [App\Http\Controllers\RefereeController::class, 'store'])->name('referee.store');
+        });   
     });
 
     Route::prefix('/teams')->group(function () {
@@ -78,6 +95,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/join/{team}', [App\Http\Controllers\TeamController::class, 'join'])->name('teams.join');
     });
 });
+
 
 require __DIR__.'/auth.php';
 

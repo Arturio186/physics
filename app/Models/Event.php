@@ -17,4 +17,9 @@ class Event extends Model
     {
         return $this->hasMany(EventDay::class);
     }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
 }

@@ -9,7 +9,7 @@ h1 {
     color: #333;
 }
 
-form {
+.form {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -32,8 +32,7 @@ input {
     border: 1px solid #ddd;
     border-radius: 4px;
 }
-
-button {
+.form__button {
     background-color: #333;
     color: white;
     padding: 10px 15px;
@@ -42,17 +41,17 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.form__button:hover {
     background-color: #555;
 }
 
-a {
+.link {
     display: inline-block;
     margin-top: 10px;
     text-decoration: none;
     color: #333;
 }
 
-a:hover {
+.link:hover {
     color: #ff6347;
 }

@@ -17,21 +17,19 @@
         @endif
 
         @foreach($events as $event)
-            <a href="{{ route('events.days', $event) }}" class="event-link">
-                <div class="event">
-                    <h2>{{ $event->title }}</h2>
-                    <p>Дата проведения: {{ $event->date }}</p>
-                    @if (Auth::user())
-                        @if (Auth::user()->role_id == 1)
-                        <form action="{{ route('events.destroy', ['event' => $event]) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="admin__btn" type="submit">Удалить</button>
-                        </form>
-                        @endif  
-                    @endif
-                </div>
-            </a>
+            <div class="event">
+                <h2>{{ $event->title }}</h2>
+                <p>Дата проведения: {{ $event->date }}</p>
+                <a href="{{ route('events.videos.index', $event) }}">Видео</a>
+                <a href="{{ route('events.days', $event) }}">Фото</a>
+                @if (Auth::user() && Auth::user()->isAdmin())
+                    <form action="{{ route('events.destroy', ['event' => $event]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="admin__btn" type="submit">Удалить</button>
+                    </form> 
+                @endif
+            </div>
         @endforeach
     </div>
 @endsection

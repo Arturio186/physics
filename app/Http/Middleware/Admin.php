@@ -11,6 +11,10 @@ class Admin
 {
     public function handle(Request $request, Closure $next): Response
     {
+        if (!Auth::user()) {
+            return redirect()->route('main.index');
+        }
+        
         if (!Auth::user()->isAdmin()) {
             return redirect()->route('main.index');
         }
