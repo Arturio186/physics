@@ -12,7 +12,16 @@ class Team extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'creator_id', 'tournament_id'];
+    protected $fillable = [
+        'name', 
+        'creator_id', 
+        'tournament_id',
+        'main_form',
+        'second_form',
+        'coach_name',
+        'coach_phone',
+        'coach_email',
+    ];
     protected $primaryKey = 'id';
     public $incrementing = false;
 

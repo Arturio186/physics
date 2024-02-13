@@ -24,6 +24,59 @@
                 <input type="text" id="player_number" name="player_number" class="form-control" required>
             </div>
 
+            <div class="form-group">
+                <label for="main_form">Цвет основной формы:</label>
+                <input type="text" id="main_form" name="main_form" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="second_form">Цвет дополнительной формы:</label>
+                <input type="text" id="second_form" name="second_form" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="coach_name">ФИО тренера:</label>
+                <input type="text" id="coach_name" name="coach_name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="coach_phone">Телефон тренера:</label>
+                <input type="text" id="coach_phone" name="coach_phone" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="coach_email">Email тренера:</label>
+                <input type="email" id="coach_email" name="coach_email" class="form-control" required>
+            </div>
+
+            @error('team_name')
+            <p class="error">{{$message}}</p>
+            @enderror
+
+            @error('player_number')
+                <p class="error">{{$message}}</p>
+            @enderror
+
+            @error('main_form')
+                <p class="error">{{$message}}</p>
+            @enderror
+
+            @error('second_form')
+                <p class="error">{{$message}}</p>
+            @enderror
+
+            @error('coach_name')
+                <p class="error">{{$message}}</p>
+            @enderror
+
+            @error('coach_phone')
+                <p class="error">{{$message}}</p>
+            @enderror
+
+            @error('coach_email')
+                <p class="error">{{$message}}</p>
+            @enderror
+
             <button type="submit" class="btn btn-primary">Создать команду</button>
         </form>
     @else

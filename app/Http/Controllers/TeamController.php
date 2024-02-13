@@ -30,13 +30,23 @@ class TeamController extends Controller
         $request->validate([
             'team_name' => ['string', 'required'],
             'player_number' => ['int', 'required'],
-            'tournament_id' => ['int', 'required']
+            'tournament_id' => ['int', 'required'],
+            'main_form' => ['string', 'required'],
+            'second_form' => ['string', 'required'],
+            'coach_name' => ['string', 'required'],
+            'coach_phone' => ['string', 'required'],
+            'coach_email' => ['required', 'email'],
         ]);
 
         $team = Team::create([
             'name' => $request->team_name,
             'creator_id' => $creator->id,
-            'tournament_id' => $request->tournament_id
+            'tournament_id' => $request->tournament_id,
+            'main_form' => $request->main_form,
+            'second_form' => $request->second_form,
+            'coach_name' => $request->coach_name,
+            'coach_phone' => $request->coach_phone,
+            'coach_email' => $request->coach_email,
         ]);
         
         $team->players()->attach($creator, ['player_number' => $request->player_number]);
