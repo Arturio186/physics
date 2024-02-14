@@ -31,7 +31,7 @@
 
     <div class="referees">
         <h2 class="tournament-details__title">Судейский состав</h2>
-        @if(Auth::user()->role_id == 1)
+        @if (Auth::user() && Auth::user()->role_id == 1)
             <a href="{{ route('referee.add', ['tournament' => $tournament->id]) }}" class="btn btn-primary">Добавить судью</a>
         @endif
         @if (count($referees) != 0)

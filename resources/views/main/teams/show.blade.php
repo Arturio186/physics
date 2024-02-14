@@ -25,7 +25,7 @@
                 </tr>
             @endforeach
         </table>
-        @if (auth()->user()->id == $team->creator_id)
+        @if (Auth::user() && Auth::user()->id == $team->creator_id)
             <p class="message">Ссылка для приглашения других игроков: </p>
             <input type="text" class="invite-link" value="{{ route('teams.invite', $team->id) }}" readonly>
         @endif

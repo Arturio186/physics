@@ -6,23 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::table('teams', function (Blueprint $table) {
             $table->string('main_form'); 
             $table->string('second_form'); 
             $table->string('coach_name');
-            $table->string('coach_phone')->unique(); 
-            $table->string('coach_email')->unique(); 
+            $table->string('coach_surname');
+            $table->string('coach_midname');
+            $table->string('coach_phone'); 
+            $table->string('coach_email'); 
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('teams', function (Blueprint $table) {

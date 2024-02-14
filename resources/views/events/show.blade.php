@@ -36,7 +36,7 @@
                     <div class="gallery-item">
                         <div class="image-container" onclick="openModal('{{ asset('uploads/' . $photo->filename) }}', {{ $index }})">
                             <img class="image" src="{{ asset('uploads/' . $photo->filename) }}" alt="photo">
-                            @if(Auth::user() && Auth::user()->role_id == 1)
+                            @if (Auth::user() && Auth::user()->role_id == 1)
                                 <div class="overlay">
                                     <form action="{{ route('events.deleteGalleryItem', $photo) }}" method="POST">
                                         @csrf
@@ -61,12 +61,6 @@
     </div>
 
     <script>
-        var currentSlide = 0;
-        
-        function stopPropagation(event) {
-            event.stopPropagation();
-        }
-
         function openModal(imageUrl, index) {
             var modal = document.getElementById('imageModal');
             var fullImage = document.getElementById('fullImage');
@@ -80,21 +74,6 @@
         function closeModal() {
             var modal = document.getElementById('imageModal');
             modal.style.display = 'none';
-        }
-
-        function plusSlides(n) {
-            showSlide(currentSlide += n);
-        }
-
-        function showSlide(n) {
-            var images = document.querySelectorAll('.gallery-item .image');
-            if (n >= images.length) {
-                currentSlide = 0;
-            }
-            if (n < 0) {
-                currentSlide = images.length - 1;
-            }
-            fullImage.src = images[currentSlide].src;
         }
     </script>
 
