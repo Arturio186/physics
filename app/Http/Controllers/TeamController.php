@@ -34,6 +34,8 @@ class TeamController extends Controller
             'main_form' => ['string', 'required'],
             'second_form' => ['string', 'required'],
             'coach_name' => ['string', 'required'],
+            'coach_surname' => ['string', 'required'],
+            'coach_midname' => ['string', 'required'],
             'coach_phone' => ['string', 'required'],
             'coach_email' => ['required', 'email'],
         ]);
@@ -45,6 +47,8 @@ class TeamController extends Controller
             'main_form' => $request->main_form,
             'second_form' => $request->second_form,
             'coach_name' => $request->coach_name,
+            'coach_surname' => $request->coach_surname,
+            'coach_midname' => $request->coach_midname,
             'coach_phone' => $request->coach_phone,
             'coach_email' => $request->coach_email,
         ]);

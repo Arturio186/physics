@@ -7,17 +7,22 @@ table {
 
 tr {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
 }
 
 th, td {
-    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: 1px solid #333;
     padding: 10px;
     text-align: center;
 }
 
 th {
-    background-color: #3490dc;
+    color: #fff;
+    background-color: #333;
 }
 
 h1, h2 {
@@ -48,4 +53,26 @@ h1, h2 {
 
 .invite-link:hover {
     background-color: #e9ecef;
+}
+
+.team__info {
+    margin: 0;
+    text-align: center;
+
+    font-size: 1.2rem;
+}
+
+.button {
+    text-decoration: none;
+    color: #fff;
+
+    padding: 5px;
+    background-color: #333;
+    border-radius: 12px;
+
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #555;
 }

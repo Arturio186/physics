@@ -19,6 +19,8 @@ class Team extends Model
         'main_form',
         'second_form',
         'coach_name',
+        'coach_surname',
+        'coach_midname',
         'coach_phone',
         'coach_email',
     ];

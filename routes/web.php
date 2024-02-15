@@ -51,6 +51,7 @@ Route::prefix('')->group(function () {
         });
         
         Route::get('/{event}/days', [App\Http\Controllers\EventController::class, 'showDays'])->name('events.days');
+
         Route::middleware('admin')->group(function () {
             Route::post('/{event}/days', [App\Http\Controllers\EventController::class, 'storeDays'])->name('events.days.store');
             Route::delete('/{event}/days/{EventDay}', [App\Http\Controllers\EventController::class, 'destroyDays'])->name('events.days.destroy');
@@ -65,6 +66,11 @@ Route::prefix('')->group(function () {
         });
 
         Route::get('/{event}/videos', [App\Http\Controllers\VideoController::class, 'index'])->name('events.videos.index');
+    });
+
+    Route::prefix('/sportsmen')->group(function () {
+        Route::get('/', [App\Http\Controllers\SportsmanController::class, 'all'])->name('sportsmen.all');
+        Route::get('/{sportsman}', [App\Http\Controllers\SportsmanController::class, 'show'])->name('sportsmen.show');
     });
 });
 

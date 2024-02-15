@@ -20,7 +20,7 @@
             </div>
 
             <div class="form-group">
-                <label for="player_number">Номер игрока:</label>
+                <label for="player_number">Ваш номер игрока:</label>
                 <input type="text" id="player_number" name="player_number" class="form-control" required>
             </div>
 
@@ -35,8 +35,19 @@
             </div>
 
             <div class="form-group">
-                <label for="coach_name">ФИО тренера:</label>
+                <label for="coach_surname">Фамилия тренера:</label>
+                <input type="text" id="coach_surname" name="coach_surname" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="coach_name">Имя тренера:</label>
                 <input type="text" id="coach_name" name="coach_name" class="form-control" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="coach_midname">Отчество тренера:</label>
+                <input type="text" id="coach_midname" name="coach_midname" class="form-control" required>
             </div>
 
             <div class="form-group">

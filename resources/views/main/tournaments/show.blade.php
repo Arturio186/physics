@@ -52,7 +52,7 @@
                 @endforeach
             </table>
         @else
-            <p class="tournament-details__referee">Судья не назначены</p>
+            <p class="message">Судья не назначены</p>
         @endif
     </div>
     

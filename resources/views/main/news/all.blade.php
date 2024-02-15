@@ -2,8 +2,8 @@
 @section('title', 'Главная')
 
 @section('some_styles')
-<link rel="stylesheet" href="{{asset('stylesheets/main/news.css')}}" />
-<link rel="stylesheet" href="{{asset('stylesheets/pagination.css')}}" />
+    <link rel="stylesheet" href="{{asset('stylesheets/main/news.css')}}" />
+    <link rel="stylesheet" href="{{asset('stylesheets/pagination.css')}}" />
 @endsection
 
 @section('content')
