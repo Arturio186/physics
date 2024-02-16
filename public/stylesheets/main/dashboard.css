@@ -20,8 +20,14 @@ h2 {
 }
 
 .dashboard__button {
+    height: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     text-decoration: none;
-    text-align: center;
 
     background-color: #333;
     color: #fff;
