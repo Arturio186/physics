@@ -279,3 +279,10 @@ footer h2 {
 
     z-index: 2;
 }
+
+@media (max-width: 767px) {
+    .partners_img {
+        display: flex;
+        flex-direction: column;
+    }
+}

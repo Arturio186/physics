@@ -21,7 +21,6 @@
                 <p><strong>Спортивный разряд/звание:</strong> {{ $coach->rank ?: 'Не указано' }}</p>
                 <p><strong>Территориальная принадлежность:</strong> {{ $coach->location ?: 'Не указано' }}</p>
                 <p><strong>Место работы:</strong> {{ $coach->work_space ?: 'Не указано' }}</p>
-                <p><strong>Место обучения:</strong> {{ $coach->study_place ?: 'Не указано' }}</p>
             </div>
         </div>
     </div>

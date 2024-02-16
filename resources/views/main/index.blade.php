@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('stylesheets/normalize.css')}}" />
     <link rel="stylesheet" href="{{asset('stylesheets/main/burger.css')}}" />
+    <link rel="stylesheet" href="{{asset('stylesheets/main/index_mobile.css')}}" />
     <link rel="stylesheet" href="stylesheets/main/index.css">
     <title>Главная</title>
 </head>
