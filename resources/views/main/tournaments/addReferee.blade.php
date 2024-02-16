@@ -3,6 +3,7 @@
 
 @section('some_styles')
     <link rel="stylesheet" href="{{asset('stylesheets/main/tournament.css')}}" />
+    <link rel="stylesheet" href="{{asset('stylesheets/main/form.css')}}" />
 @endsection 
 
 @section('content')
@@ -13,19 +14,24 @@
             <div class="form-group">
                 <label for="surname">Фамилия</label>
                 <input type="text" name="surname" id="surname" required/>
-
+            </div>
+            <div class="form-group">
                 <label for="name">Имя</label>
                 <input type="text" name="name" id="name" required/>
-
+            </div>
+            <div class="form-group">
                 <label for="midname">Отчество</label>
                 <input type="text" name="midname" id="midname" required/>
-
+            </div>
+            <div class="form-group">
                 <label for="phone_number">Номер телефона</label>
                 <input type="text" name="phone_number" id="phone_number" required/>
-
+            </div>
+            <div class="form-group">
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" required/>
-
+            </div>
+            <div class="form-group">
                 <label for="category_id">Категория</label>
                 <select name="category_id" id="category_id" class="form-control">
                     @foreach($categories as $category)

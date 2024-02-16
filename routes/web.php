@@ -72,6 +72,11 @@ Route::prefix('')->group(function () {
         Route::get('/', [App\Http\Controllers\SportsmanController::class, 'all'])->name('sportsmen.all');
         Route::get('/{sportsman}', [App\Http\Controllers\SportsmanController::class, 'show'])->name('sportsmen.show');
     });
+
+    Route::prefix('/coach')->group(function () {
+        Route::get('/', [App\Http\Controllers\CoachController::class, 'all'])->name('coach.all');
+        Route::get('/{coach}', [App\Http\Controllers\CoachController::class, 'show'])->name('coach.show');
+    });
 });
 
 Route::middleware('auth')->group(function () {

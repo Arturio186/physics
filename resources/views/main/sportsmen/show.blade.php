@@ -18,8 +18,6 @@
             <p class="name">{{ $sportsman->surname }} {{ $sportsman->name }} {{ $sportsman->mid_name }}</p>
             <div class="details">
                 <p><strong>Дата рождения:</strong> {{ $sportsman->birthdate ?: 'Не указано' }}</p>
-                <p><strong>Номер телефона:</strong> {{ $sportsman->phone_number ?: 'Не указано' }}</p>
-                <p><strong>E-mail:</strong> {{ $sportsman->email ?: 'Не указано' }}</p>
                 <p><strong>Спортивный разряд/звание:</strong> {{ $sportsman->rank ?: 'Не указано' }}</p>
                 <p><strong>Территориальная принадлежность:</strong> {{ $sportsman->location ?: 'Не указано' }}</p>
                 <p><strong>Место работы:</strong> {{ $sportsman->work_space ?: 'Не указано' }}</p>

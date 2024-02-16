@@ -67,6 +67,14 @@
                 <label for="study_place" class="form-label">Место учебы:</label>
                 <input type="text" class="form-control" id="study_place" name="study_place" value="{{ $user->study_place }}">
             </div>
+
+            <div class="mb-3">
+                <label for="sport_role" class="form-label">Роль:</label>
+                <select id="sport_role" class="form-control" name="sport_role">
+                    <option {{ $user->sport_role == 'sportsman' ? 'selected' : '' }} value="sportsman">Спортсмен</option>
+                    <option {{ $user->sport_role == 'coach' ? 'selected' : '' }} value="coach">Тренер</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Сохранить</button>
         </form>
     </div>

@@ -23,7 +23,7 @@ h2 {
     text-decoration: none;
     text-align: center;
 
-    background-color: #0059b8;
+    background-color: #333;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -43,13 +43,16 @@ h2 {
 }
 
 .dashboard__button:hover {
-    background-color: #007bff;
+    background-color: #555;
 }
 
 .avatar {
-    max-width: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin-bottom: 20px;
+
+    object-fit: cover;
 }
 
 

@@ -7,10 +7,9 @@
 
 @section('content')
     <div class="tournament-details">
-        <div class="tournament-details__header">
-            <h2 class="tournament-details__title">{{ $tournament->name }}</h2>
-            <p class="tournament-details__date">Дата начала: {{ $tournament->start_date }}</p>
-        </div>
+        <h2 class="tournament-details__title">{{ $tournament->name }}</h2>
+        <p class="tournament-details__date">Дата начала: {{ $tournament->start_date }}</p>
+        
         <div class="tournament-details__content">
             <p class="tournament-details__description">{!! nl2br(e($tournament->description)) !!}</p>
             @if ($tournament->is_active)
@@ -32,7 +31,7 @@
     <div class="referees">
         <h2 class="tournament-details__title">Судейский состав</h2>
         @if (Auth::user() && Auth::user()->role_id == 1)
-            <a href="{{ route('referee.add', ['tournament' => $tournament->id]) }}" class="btn btn-primary">Добавить судью</a>
+            <a href="{{ route('referee.add', ['tournament' => $tournament->id]) }}" class="btn btn-primary admin">Добавить судью</a>
         @endif
         @if (count($referees) != 0)
             <table class="referees__table">

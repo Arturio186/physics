@@ -9,13 +9,19 @@
     <h2 class="subtitle">Личный кабинет</h2>
  
     @if($user->photo_path)
-    <img class="avatar" src="{{ asset($user->photo_path) }}" alt="User Avatar" width="200px">
+        <img class="avatar" src="{{ asset($user->photo_path) }}" alt="User Avatar" width="200px">
     @else
         <img class="avatar" src="{{asset('images/ava_mock.png')}}" alt="User Avatar" width="200px">
     @endif
- 
-    <p>Имя: {{ $user->name ?: 'Не указано' }}</p>
+    <h3>
+        @if ($user->sport_role == 'sportsman')
+            Спортсмен
+        @elseif ($user->sport_role == 'coach')
+            Тренер
+        @endif
+    </h3>
     <p>Фамилия: {{ $user->surname ?: 'Не указано' }}</p>
+    <p>Имя: {{ $user->name ?: 'Не указано' }}</p>
     <p>Отчество: {{ $user->mid_name ?: 'Не указано' }}</p>
     <p>Дата рождения: {{ $user->birthdate ?: 'Не указано' }}</p>
     <p>Номер телефона: {{ $user->phone_number ?: 'Не указано' }}</p>

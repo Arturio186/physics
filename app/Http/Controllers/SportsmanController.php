@@ -9,7 +9,7 @@ class SportsmanController extends Controller
 {
     public function all()
     {
-        $users = User::where('is_sportsmen', true)->orderBy('surname')->paginate(10);
+        $users = User::where('sport_role', 'sportsman')->orderBy('surname')->paginate(10);
 
         return view('main.sportsmen.all', compact('users'));
     }

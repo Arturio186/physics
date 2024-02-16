@@ -24,7 +24,8 @@ class User extends \TCG\Voyager\Models\User
         'password',
         'location',
         'rank',
-        'photo_path'
+        'photo_path',
+        'sport_role'
     ];
 
     protected $hidden = [

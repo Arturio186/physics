@@ -36,6 +36,7 @@
                 <li><a class="menu__item" href="{{ route('commerce.index') }}">Коммерческие услуги</a></li>
                 <li><a class="menu__item" href="{{ route('documents.index') }}">Документы</a></li>
                 <li><a class="menu__item" href="{{ route('sportsmen.all')}}">Спортсмены</a></li>
+                <li><a class="menu__item" href="{{ route('coach.all')}}">Тренерско-преподавательский состав</a></li>
                 @auth
                     <li><a class="menu__item menu__dashboard" href="{{ route('dashboard.index') }}">Личный кабинет</a></li>
                     <li>

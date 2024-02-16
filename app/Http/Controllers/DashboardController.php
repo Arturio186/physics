@@ -34,7 +34,8 @@ class DashboardController extends Controller
             'work_space' => 'nullable|string',
             'study_place' => 'nullable|string',
             'location' => 'nullable|string',
-            'rank' => 'nullable|string'
+            'rank' => 'nullable|string',
+            'sport_role' => ['string', 'required']
         ]);
 
         $user->update($request->all());

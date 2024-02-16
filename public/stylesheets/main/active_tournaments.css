@@ -9,12 +9,13 @@
 }
 
 .tournament__card {
+    width: 100%;
+    text-align: center;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
-    width: 30%;
 }
 
 .tournament__card:hover {
@@ -43,7 +44,7 @@
 .tournament__link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3490dc;
+    background-color: #333;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -51,7 +52,7 @@
 }
 
 .tournament__link:hover {
-    background-color: #2176bd;
+    background-color: #555;
 }
 
 .message {
