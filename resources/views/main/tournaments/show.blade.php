@@ -45,15 +45,17 @@
                 Изменить
                 <tr>
                     <td>
-                        {{ $referee->surname }} {{ $referee->name }} {{ $referee->midname }} 
-                        <div class="controls">
-                            <a href="{{ route('referee.edit', ['tournament' => $tournament, 'referee' => $referee]) }}">Изменить</a>
-                            <form onsubmit="return confirm('Вы уверены, что хотите удалить?');" action="{{ route('referee.destroy', ['tournament' => $tournament, 'referee' => $referee]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit">Удалить</button>
-                            </form>
-                        </div>
+                        {{ $referee->surname }} {{ $referee->name }} {{ $referee->midname }}
+                        @if (Auth::user() && Auth::user()->role_id == 1)
+                            <div class="controls">
+                                <a href="{{ route('referee.edit', ['tournament' => $tournament, 'referee' => $referee]) }}">Изменить</a>
+                                <form onsubmit="return confirm('Вы уверены, что хотите удалить?');" action="{{ route('referee.destroy', ['tournament' => $tournament, 'referee' => $referee]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Удалить</button>
+                                </form>
+                            </div>
+                        @endif
                     </td>
                     <td>{{ $referee->category->category }}</td>
                     <td>{{ $referee->phone_number }}</td>
