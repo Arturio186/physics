@@ -42,7 +42,6 @@
                     <th>E-Mail</th>
                 </tr>
                 @foreach ($referees as $referee)
-                Изменить
                 <tr>
                     <td>
                         {{ $referee->surname }} {{ $referee->name }} {{ $referee->midname }}
@@ -61,7 +60,6 @@
                     <td>{{ $referee->phone_number }}</td>
                     <td>{{ $referee->email }}</td>
                 </tr>
-                
                 @endforeach
             </table>
         @else

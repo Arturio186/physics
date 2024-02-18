@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
         <h1>Изменение судьи</h1>
-        <form method="POST" action="{{ route('referee.update', ['tournament' => $tournament->id, 'referee' => $referee]) }}">
+        <form class="form" method="POST" action="{{ route('referee.update', ['tournament' => $tournament->id, 'referee' => $referee]) }}">
             @csrf
             @method('PUT')
             <div class="form-group">

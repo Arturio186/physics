@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
         <h1>Добавление судьи</h1>
-        <form method="POST" action="{{ route('referee.store', ['tournament' => $tournament->id]) }}">
+        <form class="form" method="POST" action="{{ route('referee.store', ['tournament' => $tournament->id]) }}">
             @csrf
             <div class="form-group">
                 <label for="surname">Фамилия</label>
