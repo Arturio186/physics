@@ -87,6 +87,10 @@ th {
     background-color: #333;
 }
 
+.referees__table {
+    width: 80%;
+}
+
 .referees__table tr {
     display: grid;
     grid-template-columns: 3fr 1fr 1fr 1fr;
@@ -94,7 +98,7 @@ th {
 
 .teams__table tr {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
 }
 
 
