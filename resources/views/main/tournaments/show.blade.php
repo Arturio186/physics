@@ -42,12 +42,24 @@
                     <th>E-Mail</th>
                 </tr>
                 @foreach ($referees as $referee)
+                Изменить
                 <tr>
-                    <td>{{ $referee->surname }} {{ $referee->name }} {{ $referee->midname }} </td>
+                    <td>
+                        {{ $referee->surname }} {{ $referee->name }} {{ $referee->midname }} 
+                        <div class="controls">
+                            <a href="{{ route('referee.edit', ['tournament' => $tournament, 'referee' => $referee]) }}">Изменить</a>
+                            <form onsubmit="return confirm('Вы уверены, что хотите удалить?');" action="{{ route('referee.destroy', ['tournament' => $tournament, 'referee' => $referee]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Удалить</button>
+                            </form>
+                        </div>
+                    </td>
                     <td>{{ $referee->category->id }}</td>
                     <td>{{ $referee->phone_number }}</td>
                     <td>{{ $referee->email }}</td>
                 </tr>
+                
                 @endforeach
             </table>
         @else

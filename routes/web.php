@@ -96,6 +96,9 @@ Route::middleware('auth')->group(function () {
         Route::middleware('admin')->group(function () {
             Route::get('/{tournament}/create', [App\Http\Controllers\RefereeController::class, 'add'])->name('referee.add');
             Route::post('/{tournament}/create', [App\Http\Controllers\RefereeController::class, 'store'])->name('referee.store');
+            Route::get('/{tournament}/{referee}/edit', [App\Http\Controllers\RefereeController::class, 'edit'])->name('referee.edit');
+            Route::put('/{tournament}/{referee}/edit', [App\Http\Controllers\RefereeController::class, 'update'])->name('referee.update');
+            Route::delete('/{tournament}/{referee}', [App\Http\Controllers\RefereeController::class, 'destroy'])->name('referee.destroy');
         });   
     });
 

@@ -88,12 +88,12 @@ th {
 }
 
 .referees__table {
-    width: 80%;
+    width: 70%;
 }
 
 .referees__table tr {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
 }
 
 .teams__table tr {
@@ -115,3 +115,32 @@ th {
 .team__link:hover {
     background-color: #555;
 }
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+
+}
+
+.controls a {
+    text-decoration: none;
+}
+
+.controls button {
+    background-color: #fff;
+    border: none;
+}
+
+.controls button, .controls a {
+    color: #000;
+
+    transition: transform 0.3s ease;
+}
+
+.controls button:hover, .controls a:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
