@@ -21,18 +21,26 @@
         <table>
             <tr>
                 <th>ФИО</th>
-                <th>E-mail</th>
-                <th>Разряд</th>
-                <th>Номер игрока</th>
-                <th></th>
+                <th>Спортивный разряд/звание</th>
+                <th>Нагрудный номер игрока</th>
+                <th>Количество пойманых мячей с лета</th>
+                <th>Количество совершенных осаливаний</th>
+                <th>Количество совершенных правильных ударов в площадку</th>
+                <th>Количество набраных очков в турнире</th>
             </tr>
             @foreach($team->players as $player)
                 <tr>
-                    <td>{{ $player->surname }} {{ $player->name }} {{ $player->mid_name }}</td>
-                    <td>{{ $player->email }}</td>
+                    <td>
+                        <a class="clickable" href="{{ route('sportsmen.show', $player->id) }}">
+                            {{ $player->surname }} {{ $player->name }} {{ $player->mid_name }}
+                        </a>
+                    </td>
                     <td>{{ $player->rank }}</td>
                     <td>{{ $player->pivot->player_number }}</td>
-                    <td><a class="button" href="{{ route('sportsmen.show', $player->id) }}">Подробнее</a></td>
+                    <td>{{ $player->pivot->cought_balls }}</td>
+                    <td>{{ $player->pivot->falls }}</td>
+                    <td>{{ $player->pivot->good_shots }}</td>
+                    <td>{{ $player->pivot->total }}</td>
                 </tr>
             @endforeach
         </table>

@@ -47,7 +47,7 @@ class Team extends Model
 
     public function players()
     {
-        return $this->belongsToMany(User::class)->withPivot('player_number');;
+        return $this->belongsToMany(User::class)->withPivot(['player_number', 'cought_balls', 'falls', 'good_shots', 'total']);
     }
     
     public function creator()

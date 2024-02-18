@@ -45,6 +45,6 @@ class User extends \TCG\Voyager\Models\User
 
     public function teams()
     {
-        return $this->belongsToMany(Team::class)->withPivot('player_number');;
+        return $this->belongsToMany(Team::class)->withPivot(['player_number', 'cought_balls', 'falls', 'good_shots', 'total']);
     }
 }

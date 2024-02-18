@@ -1,5 +1,5 @@
 table {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -7,7 +7,7 @@ table {
 
 tr {
     display: grid;
-    grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 th, td {
@@ -76,4 +76,15 @@ h1, h2 {
 
 .button:hover {
     background-color: #555;
+}
+
+.clickable {
+    text-decoration: none;
+    color: #000;
+
+    transition: transform 0.3s ease;
+}
+
+.clickable:hover {
+    transform: scale(1.05);
 }
