@@ -55,7 +55,7 @@
                             </form>
                         </div>
                     </td>
-                    <td>{{ $referee->category->id }}</td>
+                    <td>{{ $referee->category->category }}</td>
                     <td>{{ $referee->phone_number }}</td>
                     <td>{{ $referee->email }}</td>
                 </tr>
