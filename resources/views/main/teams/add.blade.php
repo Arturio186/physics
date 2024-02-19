@@ -61,6 +61,14 @@
                 <input type="email" id="coach_email" name="coach_email" class="form-control" required>
             </div>
 
+            <div class="form-group">
+                <label for="gender">Состав</label>
+                <select name="gender" id="gender">
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                </select>
+            </div>
+
             @error('team_name')
             <p class="error">{{$message}}</p>
             @enderror

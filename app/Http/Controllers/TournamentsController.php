@@ -44,7 +44,9 @@ class TournamentsController extends Controller
 
         $referees = Referee::where('tournament_id', $tournament->id)->get();
 
+        $mensTeams = $tournament->teams->where('gender', 'male');
+        $womensTeams = $tournament->teams->where('gender', 'female');
 
-        return view('main.tournaments.show', compact('tournament', 'isInTeam', 'referees'));
+        return view('main.tournaments.show', compact('tournament', 'isInTeam', 'referees', 'mensTeams', 'womensTeams'));
     }
 }

@@ -38,6 +38,7 @@ class TeamController extends Controller
             'coach_midname' => ['string', 'required'],
             'coach_phone' => ['string', 'required'],
             'coach_email' => ['required', 'email'],
+            'gender' => ['required', 'string']
         ]);
 
         $team = Team::create([
@@ -51,6 +52,7 @@ class TeamController extends Controller
             'coach_midname' => $request->coach_midname,
             'coach_phone' => $request->coach_phone,
             'coach_email' => $request->coach_email,
+            'gender' => $request->gender
         ]);
         
         $team->players()->attach($creator, ['player_number' => $request->player_number]);

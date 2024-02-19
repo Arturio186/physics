@@ -23,6 +23,7 @@ class Team extends Model
         'coach_midname',
         'coach_phone',
         'coach_email',
+        'gender'
     ];
     protected $primaryKey = 'id';
     public $incrementing = false;

@@ -68,14 +68,14 @@
     </div>
     
     <div class="teams">
-        <h2 class="tournament-details__title">Команды</h2>
-        @if (count($tournament->teams) != 0)
+        <h2 class="tournament-details__title">Мужские команды</h2>
+        @if ($mensTeams->count() != 0)
             <table class="teams__table">
                 <tr>
                     <th>Название</th>
                     <th></th>
                 </tr>
-                @foreach($tournament->teams as $team)
+                @foreach($mensTeams as $team)
                 <tr>
                     <td>{{ $team->name }}</td>
                     <td><a class="team__link" href="{{ route('teams.show', $team->id) }}">Подробнее</a></td>
@@ -83,7 +83,28 @@
                 @endforeach
             </table>
         @else
-            <p class="message">Команды отсутствуют</p>
+            <p class="message">Мужские команды отсутствуют</p>
         @endif
     </div>
+
+    <div class="teams">
+        <h2 class="tournament-details__title">Женские команды</h2>
+        @if ($womensTeams->count() != 0)
+            <table class="teams__table">
+                <tr>
+                    <th>Название</th>
+                    <th></th>
+                </tr>
+                @foreach($womensTeams as $team)
+                <tr>
+                    <td>{{ $team->name }}</td>
+                    <td><a class="team__link" href="{{ route('teams.show', $team->id) }}">Подробнее</a></td>
+                </tr>
+                @endforeach
+            </table>
+        @else
+            <p class="message">Женские команды отсутствуют</p>
+        @endif
+    </div>
+
 @endsection
