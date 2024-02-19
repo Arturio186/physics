@@ -1,5 +1,5 @@
 
-form {
+.form {
     align-self: center;
 
     max-width: 400px;
@@ -26,8 +26,8 @@ input {
     border-radius: 4px;
 }
 
-button {
-    background-color: #007bff;
+.button {
+    background-color: #333;
     color: #fff;
     padding: 12px;
     border: none;
@@ -35,6 +35,12 @@ button {
     border-radius: 4px;
     font-size: 16px;
     width: 100%;
+
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #555;
 }
 
 /* Добавьте стили для сообщения об ошибке, если необходимо */

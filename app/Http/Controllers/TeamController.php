@@ -97,4 +97,13 @@ class TeamController extends Controller
 
         return redirect()->route('tournaments.show', $team->tournament->id);
     }
+
+    public function out(Request $request, Team $team)
+    {
+        if ($team->players()->where('user_id', Auth::user()->id)->exists()) {
+            $team->players()->detach(Auth::user()->id);
+        }
+
+        return redirect()->route('tournaments.show', $team->tournament->id);
+    }
 }

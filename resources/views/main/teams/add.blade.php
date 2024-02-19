@@ -3,13 +3,14 @@
 
 @section('some_styles')
     <link rel="stylesheet" href="{{asset('stylesheets/main/create_team.css')}}" />
+    <link rel="stylesheet" href="{{asset('stylesheets/main/form.css')}}" />
 @endsection 
 
 @section('content')
     @if ($tournament)
         <h1>Создание команды для турнира {{ $tournament->name }}</h1>
         <p class="message">Перед тем, как создавать команду, убедитесь, что она уже не создана другим членом Вашей команды.</p>
-        <form method="POST" action="{{ route('teams.store') }}">
+        <form class="form" method="POST" action="{{ route('teams.store') }}">
             @csrf
 
             <input type="hidden" name="tournament_id" value="{{ $tournament->id }}">
@@ -88,7 +89,7 @@
                 <p class="error">{{$message}}</p>
             @enderror
 
-            <button type="submit" class="btn btn-primary">Создать команду</button>
+            <button type="submit" class="button">Создать команду</button>
         </form>
     @else
         <p class="message">Турнир не найден</p>

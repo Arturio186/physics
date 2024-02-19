@@ -107,6 +107,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/create', [App\Http\Controllers\TeamController::class, 'store'])->name('teams.store');
         Route::get('/join/{team}', [App\Http\Controllers\TeamController::class, 'invite'])->name('teams.invite');
         Route::post('/join/{team}', [App\Http\Controllers\TeamController::class, 'join'])->name('teams.join');
+        Route::post('/out/{team}', [App\Http\Controllers\TeamController::class, 'out'])->name('teams.out');
     });
 });
 

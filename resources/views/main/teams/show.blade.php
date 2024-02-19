@@ -8,6 +8,12 @@
 @section('content')
     <h1>Команда "{{ $team->name }}"</h1>
     <h2>Турнир, в котором участвует команда: {{ $team->tournament->name }}</h2>
+    @if($team->players->contains(auth()->user()))
+        <form class="form" method="POST" action="{{ route('teams.out', $team) }}">
+            @csrf
+            <button type="submit" class="button">Покинуть команду</button>
+        </form>
+    @endif
     <h2>Информация о команде</h2>
     <p class="team__info">
         Основной цвет формы: {{ $team->main_form  }}<br>

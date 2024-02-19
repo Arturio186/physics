@@ -3,6 +3,7 @@
 
 @section('some_styles')
     <link rel="stylesheet" href="{{asset('stylesheets/main/invite_team.css')}}" />
+    <link rel="stylesheet" href="{{asset('stylesheets/main/form.css')}}" />
 @endsection 
 
 @section('content')
