@@ -16,6 +16,9 @@
         Телефон тренера: {{ $team->coach_phone }}<br>
         E-mail тренера: {{ $team->coach_email }}
     </p>
+    @if(Auth::user() && Auth::user()->id == $team->creator_id)
+        <a class="link button" href="{{ route('teams.edit', $team) }}">Изменить информацию о команде</a>
+    @endif
     @if($team->players->contains(auth()->user()))
         <form class="form" method="POST" action="{{ route('teams.out', $team) }}">
             @csrf

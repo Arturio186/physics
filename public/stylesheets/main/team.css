@@ -58,6 +58,7 @@ h1, h2 {
 
 .team__info {
     margin: 0;
+    margin-bottom: 10px;
     text-align: center;
 
     font-size: 1.2rem;
@@ -90,7 +91,8 @@ h1, h2 {
 }
 
 .form {
-    margin: 10px auto;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 .button {
@@ -108,4 +110,11 @@ h1, h2 {
 
 .button:hover {
     background-color: #555;
+}
+
+.link {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+    width: auto;
 }

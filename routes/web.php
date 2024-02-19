@@ -105,6 +105,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('/teams')->group(function () {
         Route::get('/create', [App\Http\Controllers\TeamController::class, 'add'])->name('teams.add');
         Route::post('/create', [App\Http\Controllers\TeamController::class, 'store'])->name('teams.store');
+        Route::get('/edit/{team}', [App\Http\Controllers\TeamController::class, 'edit'])->name('teams.edit');
+        Route::put('/edit/{team}', [App\Http\Controllers\TeamController::class, 'update'])->name('teams.update');
         Route::get('/join/{team}', [App\Http\Controllers\TeamController::class, 'invite'])->name('teams.invite');
         Route::post('/join/{team}', [App\Http\Controllers\TeamController::class, 'join'])->name('teams.join');
         Route::post('/out/{team}', [App\Http\Controllers\TeamController::class, 'out'])->name('teams.out');
