@@ -16,10 +16,13 @@
         Телефон тренера: {{ $team->coach_phone }}<br>
         E-mail тренера: {{ $team->coach_email }}
     </p>
-    @if(Auth::user() && Auth::user()->id == $team->creator_id)
+    @if (Auth::user() && Auth::user()->role_id == 1)
+        <button class="link button" id="printBtn">Печать</button>
+    @endif
+    @if (Auth::user() && Auth::user()->id == $team->creator_id)
         <a class="link button" href="{{ route('teams.edit', $team) }}">Изменить информацию о команде</a>
     @endif
-    @if($team->players->contains(auth()->user()))
+    @if ($team->players->contains(auth()->user()))
         <form class="form" method="POST" action="{{ route('teams.out', $team) }}">
             @csrf
             <button type="submit" class="button">Покинуть команду</button>
@@ -27,7 +30,7 @@
     @endif
     <h2>Состав команды</h2>
     @if(count($team->players) != 0)
-        <table>
+        <table id="printTable">
             <tr>
                 <th>ФИО</th>
                 <th>Спортивный разряд/звание</th>
@@ -60,4 +63,52 @@
     @else
         <p class="message">Игроки отсутсвуют</p>
     @endif
+
+    <script>
+        const printButton = document.querySelector('#printBtn');
+
+        printButton.addEventListener('click', (event) => {
+            const table = document.querySelector('#printTable');
+            const info = document.querySelector('.team__info');
+            const printWindow = window.open('', 'Print-Window');
+
+            printWindow.document.write('<html><head><title>{{ $team->name }}</title>');
+            printWindow.document.write(
+                `<style>
+                    table {
+                        border-collapse: collapse;
+                    }
+
+                    th, td {
+                        text-align: center;
+                        padding: 5px;
+                        border: 1px solid #333;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: #000;
+                    }
+
+                    h1, p {
+                        width: 100%;
+
+                        text-align: center;
+                    }
+                
+                </style>`
+            )
+            printWindow.document.write('<h1>{{ $team->name }}</h1>')
+            printWindow.document.write('<p>')
+            printWindow.document.write(info.innerHTML)
+            printWindow.document.write('</p>')
+            printWindow.document.write('</head><body><table>');
+            printWindow.document.write(table.innerHTML);
+            printWindow.document.write('</table></body></html>');
+            printWindow.document.close();
+            printWindow.focus();
+            printWindow.print();
+            printWindow.close();
+        });
+    </script>
 @endsection
