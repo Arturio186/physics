@@ -100,9 +100,9 @@ class TeamController extends Controller
     {
         $isInTeam = false;
 
-        foreach ($team->tournament->teams as $team)
+        foreach ($team->tournament->teams as $t)
         {
-            if ($team->players->contains(Auth::user()->id))
+            if ($t->players->contains(Auth::user()->id))
             {
                 $isInTeam = true;
                 break;
@@ -118,11 +118,11 @@ class TeamController extends Controller
             'player_number' => ['int', 'required']
         ]);
 
-        foreach ($team->tournament->teams as $team)
+        foreach ($team->tournament->teams as $t)
         {
-            if ($team->players->contains(Auth::user()->id))
+            if ($t->players->contains(Auth::user()->id))
             {
-                return redirect()->route('tournaments.show', $team->tournament->id);
+                return redirect()->route('tournaments.show', $t->tournament->id);
             }
         }   
 
