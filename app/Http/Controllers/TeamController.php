@@ -130,7 +130,7 @@ class TeamController extends Controller
             $team->players()->attach(Auth::user()->id, ['player_number' => $request->player_number]);
         }
 
-        return redirect()->route('tournaments.show', $team->tournament->id);
+        return redirect()->route('teams.show', $team);
     }
 
     public function out(Request $request, Team $team)
