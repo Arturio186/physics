@@ -112,14 +112,11 @@ class TeamController extends Controller
         return view('main.teams.invite', compact('team', 'isInTeam'));
     }
 
-    public function join(Request $request) 
+    public function join(Request $request, Team $team) 
     {
         $request->validate([
-            'team_id' => ['required', Rule::exists('teams', 'id')],
             'player_number' => ['int', 'required']
         ]);
-
-        $team = Team::find($request->team_id);
 
         foreach ($team->tournament->teams as $team)
         {

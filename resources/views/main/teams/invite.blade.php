@@ -14,10 +14,8 @@
         @if(!$isInTeam)
             <p class="message">Вас пригласили в команду {{ $team->name }}</p>
             <p class="message">Команда участвует в турнире {{ $team->tournament->name }}</p>
-            <form class="form" method="POST" action="{{ route('teams.join', $team->id) }}">
+            <form class="form" method="POST" action="{{ route('teams.join', $team) }}">
                 @csrf
-                <input type="hidden" name="team_id" value="{{ $team->id }}">
-
                 <div class="form-group">
                     <label for="player_number">Ваш номер игрока:</label>
                     <input type="text" id="player_number" name="player_number" class="form-control" required>
