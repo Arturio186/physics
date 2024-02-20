@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', "Создание команды")
+@section('title', "Присоединиться к команде")
 
 @section('some_styles')
     <link rel="stylesheet" href="{{asset('stylesheets/main/invite_team.css')}}" />
@@ -22,9 +22,6 @@
                 </div>
 
                 @error('player_number')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
-                @error('team_id')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
 
