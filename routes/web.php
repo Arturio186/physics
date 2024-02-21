@@ -110,6 +110,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/join/{team}', [App\Http\Controllers\TeamController::class, 'invite'])->name('teams.invite');
         Route::post('/join/{team}', [App\Http\Controllers\TeamController::class, 'join'])->name('teams.join');
         Route::post('/out/{team}', [App\Http\Controllers\TeamController::class, 'out'])->name('teams.out');
+
+        Route::middleware('admin')->group(function () {
+            Route::delete('/destroy/{team}', [App\Http\Controllers\TeamController::class, 'destroy'])->name('teams.destroy');
+        });
     });
 });
 

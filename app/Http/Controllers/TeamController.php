@@ -141,4 +141,11 @@ class TeamController extends Controller
 
         return redirect()->route('tournaments.show', $team->tournament->id);
     }
+
+    public function destroy(Request $request, Team $team)
+    {
+        $team->delete();
+
+        return redirect()->route('tournaments.show', $team->tournament->id);
+    }
 }

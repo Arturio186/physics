@@ -18,6 +18,11 @@
     </p>
     @if (Auth::user() && Auth::user()->role_id == 1)
         <button class="link button" id="printBtn">Печать</button>
+        <form onsubmit="return confirm('Вы уверены, что хотите удалить?');" class="form" action="{{ route('teams.destroy', $team) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="button link" type="submit">Удалить команду</button>
+        </form>
     @endif
     @if (Auth::user() && Auth::user()->id == $team->creator_id)
         <a class="link button" href="{{ route('teams.edit', $team) }}">Изменить информацию о команде</a>
