@@ -52,7 +52,7 @@
 
         <div class="title__smooth"></div>
         <div class="title__content">
-            <img class="title__logo" src="{{ asset('images/logo.svg') }}" alt="Логотип">
+            <img class="title__logo" src="{{ asset('images/wo_bg_gif.gif') }}" alt="Логотип">
             <h1 class="title__text">Общественная организация<br>«Федерация лапты города Тюмени»</h1>
         </div>
     </div>
