@@ -118,3 +118,15 @@ h1, h2 {
     text-align: center;
     width: auto;
 }
+
+.link__update {
+    margin-top: 10px;
+    text-decoration: none;
+    color: #000;
+
+    transition: color 0.3s ease;
+}
+
+.link__update:hover {
+    color: #ff6347;
+}

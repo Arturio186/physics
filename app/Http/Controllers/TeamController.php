@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Team;
+use App\Models\User;
 use App\Models\Tournament;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -152,5 +153,34 @@ class TeamController extends Controller
         $team->delete();
 
         return redirect()->route('tournaments.show', $team->tournament->id);
+    }
+
+    public function playerInfo(Team $team, User $player)
+    {
+        $teamUser = $player->teams()->wherePivot('team_id', $team->id)->first();
+
+        // dd($teamUser);
+
+        return view('main.teams.player', compact('team', 'player', 'teamUser'));
+    }
+
+    public function playerInfoUpdate(Request $request, Team $team, User $player){
+        $request->validate([
+            'player_number' => ['required', 'int'],
+            'cought_balls' => ['required', 'int'],
+            'falls' => ['required', 'int'],
+            'good_shots' => ['required', 'int'],
+            'total' => ['required', 'int']
+        ]);
+
+        $player->teams()->updateExistingPivot($team->id, [
+            'player_number' => $request->player_number,       
+            'cought_balls' => $request->cought_balls,
+            'falls' => $request->falls,        
+            'good_shots' => $request->good_shots,
+            'total' => $request->total,    
+        ]);
+        
+        return redirect()->route('teams.show', $team);
     }
 }

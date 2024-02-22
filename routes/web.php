@@ -113,6 +113,8 @@ Route::middleware('auth')->group(function () {
 
         Route::middleware('admin')->group(function () {
             Route::delete('/destroy/{team}', [App\Http\Controllers\TeamController::class, 'destroy'])->name('teams.destroy');
+            Route::get('/{team}/{player}/info', [App\Http\Controllers\TeamController::class, 'playerInfo'])->name('teams.playerInfo');
+            Route::put('/{team}/{player}/info', [App\Http\Controllers\TeamController::class, 'playerInfoUpdate'])->name('teams.playerInfoUpdate');
         });
     });
 });

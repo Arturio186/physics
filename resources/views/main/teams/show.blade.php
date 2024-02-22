@@ -51,6 +51,11 @@
                         <a class="clickable" href="{{ route('sportsmen.show', $player->id) }}">
                             {{ $player->surname }} {{ $player->name }} {{ $player->mid_name }}
                         </a>
+                        @if (Auth::user() && Auth::user()->role_id == 1)
+                            <a class="link__update" href="{{ route('teams.playerInfo', ['team' => $team->id, 'player' => $player->id]) }}">
+                                Обновить информацию об игроке
+                            </a>
+                        @endif
                     </td>
                     <td>{{ $player->rank }}</td>
                     <td>{{ $player->pivot->player_number }}</td>
@@ -99,6 +104,10 @@
                         width: 100%;
 
                         text-align: center;
+                    }
+
+                    .link__update {
+                        display: none;
                     }
                 
                 </style>`
