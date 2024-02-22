@@ -24,7 +24,7 @@
             <button class="button link" type="submit">Удалить команду</button>
         </form>
     @endif
-    @if (Auth::user() && Auth::user()->id == $team->creator_id)
+    @if (Auth::user() && (Auth::user()->id == $team->creator_id || Auth::user()->role_id == 1))
         <a class="link button" href="{{ route('teams.edit', $team) }}">Изменить информацию о команде</a>
     @endif
     @if ($team->players->contains(auth()->user()))

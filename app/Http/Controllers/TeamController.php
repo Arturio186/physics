@@ -69,31 +69,36 @@ class TeamController extends Controller
 
     public function update(Request $request, Team $team)
     {
-        $request->validate([
-            'team_name' => ['string', 'required'],
-            'main_form' => ['string', 'required'],
-            'second_form' => ['string', 'required'],
-            'coach_name' => ['string', 'required'],
-            'coach_surname' => ['string', 'required'],
-            'coach_midname' => ['string', 'required'],
-            'coach_phone' => ['string', 'required'],
-            'coach_email' => ['required', 'email'],
-            'gender' => ['required', 'string']
-        ]);
-
-        $team->update([
-            'name' => $request->team_name,
-            'main_form' => $request->main_form,
-            'second_form' => $request->second_form,
-            'coach_name' => $request->coach_name,
-            'coach_surname' => $request->coach_surname,
-            'coach_midname' => $request->coach_midname,
-            'coach_phone' => $request->coach_phone,
-            'coach_email' => $request->coach_email,
-            'gender' => $request->gender
-        ]);
-
-        return redirect()->route('teams.show', $team);
+        if (Auth::user() && (Auth::user()->id == $team->creator_id || Auth::user()->role_id == 1))
+        {
+            $request->validate([
+                'team_name' => ['string', 'required'],
+                'main_form' => ['string', 'required'],
+                'second_form' => ['string', 'required'],
+                'coach_name' => ['string', 'required'],
+                'coach_surname' => ['string', 'required'],
+                'coach_midname' => ['string', 'required'],
+                'coach_phone' => ['string', 'required'],
+                'coach_email' => ['required', 'email'],
+                'gender' => ['required', 'string']
+            ]);
+    
+            $team->update([
+                'name' => $request->team_name,
+                'main_form' => $request->main_form,
+                'second_form' => $request->second_form,
+                'coach_name' => $request->coach_name,
+                'coach_surname' => $request->coach_surname,
+                'coach_midname' => $request->coach_midname,
+                'coach_phone' => $request->coach_phone,
+                'coach_email' => $request->coach_email,
+                'gender' => $request->gender
+            ]);
+    
+            return redirect()->route('teams.show', $team);
+        }
+        
+        return 'Доступ запрещен';
     }
 
     public function invite(Team $team)

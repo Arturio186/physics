@@ -9,7 +9,7 @@
 @section('content')
     @if ($tournament)
         <h1>Изменение информации о команде</h1>
-        @if (Auth::user() && $team->creator_id == Auth::user()->id)
+        @if (Auth::user() && (Auth::user()->id == $team->creator_id || Auth::user()->role_id == 1))
             <form class="form" method="POST" action="{{ route('teams.update', $team) }}">
                 @csrf
                 @method('PUT')
@@ -93,7 +93,7 @@
                 <button type="submit" class="button">Изменить</button>
             </form>
         @else
-            <p class="message">Информацию о турнире может менять только создатель команды</p>
+            <p class="message">Информацию о турнире может менять только создатель команды или администратор</p>
         @endif
     @else
         <p class="message">Турнир не найден</p>
