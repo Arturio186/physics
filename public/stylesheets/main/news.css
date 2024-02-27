@@ -30,6 +30,13 @@
     transition: transform 0.3s ease-in-out;
 }
 
+@media screen and (max-width: 900px) {
+    .news {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
 .news__card:hover {
     transform: scale(1.03);
 }

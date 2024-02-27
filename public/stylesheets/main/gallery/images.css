@@ -148,6 +148,13 @@
     text-align: center;
 }
 
+@media screen and (max-width: 900px) {   
+    .new-images {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
 .new-images form {
     display: flex;
     flex-direction: column;

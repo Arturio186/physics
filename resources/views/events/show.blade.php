@@ -61,6 +61,8 @@
     </div>
 
     <script>
+        let currentSlide = 0;
+
         function openModal(imageUrl, index) {
             var modal = document.getElementById('imageModal');
             var fullImage = document.getElementById('fullImage');
@@ -75,6 +77,20 @@
             var modal = document.getElementById('imageModal');
             modal.style.display = 'none';
         }
-    </script>
 
+        function plusSlides(n) {
+            showSlide(currentSlide += n);
+        }
+
+        function showSlide(n) {
+            var images = document.querySelectorAll('.gallery-item .image');
+            if (n >= images.length) {
+                currentSlide = 0;
+            }
+            if (n < 0) {
+                currentSlide = images.length - 1;
+            }
+            fullImage.src = images[currentSlide].src;
+        }
+    </script>
 @endsection

@@ -1,8 +1,12 @@
 table {
     width: 80%;
+
     margin: 0 auto;
     border-collapse: collapse;
     margin-bottom: 20px;
+
+    overflow-x: auto;
+    display: block; 
 }
 
 tr {
@@ -18,7 +22,9 @@ th, td {
     border: 1px solid #333;
     padding: 10px;
     text-align: center;
-    overflow: hidden; /* Добавлено свойство overflow */
+
+    white-space: normal; /* Добавлено свойство white-space: normal; */
+    word-wrap: break-word; /* Добавлено свойство word-wrap: break-word; */
 }
 
 th {
@@ -27,6 +33,7 @@ th {
 }
 
 h1, h2 {
+    width: auto;
     text-align: center;
     color: #444;
 }

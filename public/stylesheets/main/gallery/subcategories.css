@@ -18,6 +18,8 @@
     box-sizing: border-box;
 }
 
+
+
 .new-category__title {
     text-align: center;
     margin: 0;
@@ -83,6 +85,19 @@ form input {
 .days a:hover {
     transform: scale(1.05);
 }
+
+@media screen and (max-width: 900px) {
+    .days a {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .new-category {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
 
 .day img {
     width: 100%;

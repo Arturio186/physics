@@ -68,6 +68,9 @@ table {
     margin: 0 auto;
     border-collapse: collapse;
     margin-bottom: 20px;
+
+    overflow-x: auto;
+
 }
 
 th, td {
@@ -87,10 +90,6 @@ th {
     background-color: #333;
 }
 
-.referees__table {
-    width: 70%;
-}
-
 .referees__table tr {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -101,6 +100,29 @@ th {
     grid-template-columns: 3fr 1fr;
 }
 
+@media screen and (max-width: 600px) {
+    table {
+        width: 90%;
+
+        margin: 0 auto;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+
+    }
+    
+    th, td {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+        border: 1px solid #333;
+        padding: 5px;
+        text-align: center;
+    
+        white-space: normal; /* Добавлено свойство white-space: normal; */
+        word-wrap: break-word; /* Добавлено свойство word-wrap: break-word; */
+    }
+}
 
 .team__link {
     width: 50%;
@@ -120,8 +142,6 @@ th {
     display: flex;
     flex-direction: row;
     gap: 10px;
-
-
 }
 
 .controls a {
