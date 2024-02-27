@@ -46,6 +46,12 @@
                         </form>
                     </li>
                 @endauth
+                @if (isset($visits))
+                    <div class="visits">
+                        <img src="{{ asset('images/eye.svg') }}" alt="Количество просмотров">
+                        {{ $visits }}
+                    </div>
+                @endif
             </ul>
         </div>
     </header>

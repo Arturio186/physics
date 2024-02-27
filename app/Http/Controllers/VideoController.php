@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Video;
+use App\Models\Visit;
 
 class VideoController extends Controller
 {
     public function index(Event $event)
     {  
-        return view('main.videos.index', compact('event'));
+        $pageUrl = request()->path();
+        $visits = Visit::where('page_url', $pageUrl)->count();
+
+        return view('main.videos.index', compact('event', 'visits'));
     }
 
     public function add(Event $event)

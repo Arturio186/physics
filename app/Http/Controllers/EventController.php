@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\GalleryItem;
 use App\Models\EventDay;
+use App\Models\Visit;
 
 class EventController extends Controller
 {
     public function index()
     {
+        $pageUrl = request()->path();
+        $visits = Visit::where('page_url', $pageUrl)->count();
+
         $events = Event::all();
-        return view('events.index', compact('events'));
+        return view('events.index', compact('events', 'visits'));
     }
 
     public function create()
@@ -37,17 +41,23 @@ class EventController extends Controller
 
     public function show(EventDay $EventDay)
     {
+        $pageUrl = request()->path();
+        $visits = Visit::where('page_url', $pageUrl)->count();
+
         $photos = $EventDay->galleryItems();
         
-        return view('events.show', compact('EventDay'));
+        return view('events.show', compact('EventDay', 'visits'));
     }
 
     public function showGallery(Event $event)
     {
+        $pageUrl = request()->path();
+        $visits = Visit::where('page_url', $pageUrl)->count();
+
         $photos = $event->galleryItems()->where('type', 'photo')->get();
         $videos = $event->galleryItems()->where('type', 'video')->get();
         
-        return view('events.show', compact('event', 'photos', 'videos'));
+        return view('events.show', compact('event', 'photos', 'videos', 'visits'));
     }
     
 
@@ -74,8 +84,11 @@ class EventController extends Controller
 
     public function showDays(Event $event)
     {
+        $pageUrl = request()->path();
+        $visits = Visit::where('page_url', $pageUrl)->count();
+
         $days = $event->days;
-        return view('events.subcategory', compact('event', 'days'));
+        return view('events.subcategory', compact('event', 'days', 'visits'));
     }
     
     public function storeDays(Request $request, Event $event)

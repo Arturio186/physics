@@ -8,12 +8,16 @@ use App\Models\User;
 use App\Models\Tournament;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use App\Models\Visit;
 
 class TeamController extends Controller
 {
     public function show(Team $team)
     {
-        return view('main.teams.show', compact('team'));
+        $pageUrl = request()->path();
+        $visits = Visit::where('page_url', $pageUrl)->count();
+
+        return view('main.teams.show', compact('team', 'visits'));
     }
 
     public function add(Request $request)
