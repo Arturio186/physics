@@ -15,7 +15,7 @@ class EventController extends Controller
         $pageUrl = request()->path();
         $visits = Visit::where('page_url', $pageUrl)->count();
 
-        $events = Event::all();
+        $events = Event::orderBy('date', 'DESC')->get();
         return view('events.index', compact('events', 'visits'));
     }
 
