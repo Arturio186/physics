@@ -66,6 +66,8 @@
                 <select name="gender" id="gender">
                     <option value="male">Мужской</option>
                     <option value="female">Женский</option>
+                    <option value="second">Вторая группа (5-6 классы)</option>
+                    <option value="third">Третья группа (7-8 классы)</option>
                 </select>
             </div>
 

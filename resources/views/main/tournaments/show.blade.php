@@ -66,10 +66,46 @@
             <p class="message">Судья не назначены</p>
         @endif
     </div>
-    
-    <div class="teams">
-        <h2 class="tournament-details__title">Мужские команды</h2>
-        @if ($mensTeams->count() != 0)
+
+    @if ($secondTeams->count() != 0)
+        <div class="teams">
+            <h2 class="tournament-details__title">Вторая группа (5-6 классы)</h2>
+            <table class="teams__table">
+                <tr>
+                    <th>Название</th>
+                    <th></th>
+                </tr>
+                @foreach($secondTeams as $team)
+                <tr>
+                    <td>{{ $team->name }}</td>
+                    <td><a class="team__link" href="{{ route('teams.show', $team->id) }}">Подробнее</a></td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
+    @endif
+
+    @if ($thirdTeams->count() != 0)
+        <div class="teams">
+            <h2 class="tournament-details__title">Третья группа (7-8 классы)</h2>
+            <table class="teams__table">
+                <tr>
+                    <th>Название</th>
+                    <th></th>
+                </tr>
+                @foreach($thirdTeams as $team)
+                <tr>
+                    <td>{{ $team->name }}</td>
+                    <td><a class="team__link" href="{{ route('teams.show', $team->id) }}">Подробнее</a></td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
+    @endif
+
+    @if ($mensTeams->count() != 0)
+        <div class="teams">
+            <h2 class="tournament-details__title">Мужские команды</h2>
             <table class="teams__table">
                 <tr>
                     <th>Название</th>
@@ -82,14 +118,12 @@
                 </tr>
                 @endforeach
             </table>
-        @else
-            <p class="message">Мужские команды отсутствуют</p>
-        @endif
-    </div>
+        </div>
+    @endif
 
-    <div class="teams">
-        <h2 class="tournament-details__title">Женские команды</h2>
-        @if ($womensTeams->count() != 0)
+    @if ($womensTeams->count() != 0)
+        <div class="teams">
+            <h2 class="tournament-details__title">Женские команды</h2>
             <table class="teams__table">
                 <tr>
                     <th>Название</th>
@@ -102,9 +136,6 @@
                 </tr>
                 @endforeach
             </table>
-        @else
-            <p class="message">Женские команды отсутствуют</p>
-        @endif
-    </div>
-
+        </div>
+    @endif
 @endsection

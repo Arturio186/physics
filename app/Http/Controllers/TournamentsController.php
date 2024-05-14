@@ -57,7 +57,10 @@ class TournamentsController extends Controller
 
         $mensTeams = $tournament->teams->where('gender', 'male');
         $womensTeams = $tournament->teams->where('gender', 'female');
+        // hotfix для турика с детьми, в идеале переделать
+        $secondTeams = $tournament->teams->where('gender', 'second');
+        $thirdTeams =  $tournament->teams->where('gender', 'third');
 
-        return view('main.tournaments.show', compact('tournament', 'isInTeam', 'referees', 'mensTeams', 'womensTeams', 'visits'));
+        return view('main.tournaments.show', compact('tournament', 'isInTeam', 'referees', 'mensTeams', 'womensTeams', 'visits', 'secondTeams', 'thirdTeams'));
     }
 }

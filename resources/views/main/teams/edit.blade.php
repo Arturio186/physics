@@ -59,6 +59,8 @@
                     <select name="gender" id="gender">
                         <option {{ $team->gender == 'male' ? 'selected' : '' }} value="male">Мужской</option>
                         <option {{ $team->gender == 'female' ? 'selected' : '' }} value="female">Женский</option>
+                        <option {{ $team->gender == 'second' ? 'selected' : '' }} value="second">Вторая группа (5-6 классы)</option>
+                        <option {{ $team->gender == 'third' ? 'selected' : '' }} value="third">Третья группа (7-8 классы)</option>
                     </select>
                 </div>
 
